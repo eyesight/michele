@@ -6,7 +6,11 @@ function mim_files() {
   wp_enqueue_style( 'mim_styles', get_template_directory_uri() . '/dist/css/wordpress.css' ); 
 }
 
-add_action('wp_enqueue_scripts', 'mim_files');
+function site_block_editor_styles() {
+    wp_enqueue_style( 'site-block-editor-styles', get_template_directory_uri() . '/dist/css/style-editor.css' );
+}
+add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' );
+add_action('wp_enqueue_scripts', 'mim_files'); 
 
 function mim_features() {
   register_nav_menu('main-menu', 'Main Menu Header');
@@ -27,7 +31,6 @@ function mim_features() {
       'description' => 'Text on Frontpage',
       'before_widget' => '<div class="pre-title">',
       'after_widget' => '</div>',
-      'class'         => 'pre-title__title'
       ) );
     add_theme_support('post-thumbnails');
     /* add_image_size('mimLandscape', 400, 260, true);
@@ -36,6 +39,29 @@ function mim_features() {
 }
 
 add_action('after_setup_theme', 'mim_features');
+
+add_filter( 'allowed_block_types', 'mim_allowed_block_types', 10, 2 );
+ 
+function mim_allowed_block_types( $allowed_blocks, $post ) {
+ /* this shows all blocks in console of Editor
+    console.table( wp.blocks.getBlockTypes() );
+*/
+	$allowed_blocks = array(
+		'core/image',
+		'core/paragraph',
+    'core/list',
+    'core/heading',
+    'cgb/block-mim-title-lead'
+	);
+ /* 
+	if( $post->post_type === 'page' ) {
+		$allowed_blocks[] = 'core/shortcode';
+  } */
+ 
+	return $allowed_blocks;
+ 
+}
+
 
 //exclude a category on frontpage
 function exclude_category_home( $query ) {
