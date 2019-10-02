@@ -48,10 +48,12 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
 */
 	$allowed_blocks = array(
 		'core/image',
-		'core/paragraph',
+		'core/paragraph', 
     'core/list',
     'core/heading',
-    'cgb/block-mim-title-lead'
+    'cgb/block-mim-title-lead',
+    'cgb/block-mim-img-txt',  
+    'cgb/block-mim-img' 
 	);
  /* 
 	if( $post->post_type === 'page' ) {
