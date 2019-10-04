@@ -7,10 +7,11 @@ function mim_files() {
 }
 
 function site_block_editor_styles() {
+    wp_enqueue_style( 'mim-site-block-editor-styles', get_template_directory_uri() . '/dist/css/wordpress.css' );
     wp_enqueue_style( 'site-block-editor-styles', get_template_directory_uri() . '/dist/css/style-editor.css' );
 }
-add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' );
-add_action('wp_enqueue_scripts', 'mim_files'); 
+add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' ); 
+add_action('wp_enqueue_scripts', 'mim_files');  
 
 function mim_features() {
   register_nav_menu('main-menu', 'Main Menu Header');
@@ -47,13 +48,14 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
     console.table( wp.blocks.getBlockTypes() );
 */
 	$allowed_blocks = array(
-		'core/image',
-		'core/paragraph', 
-    'core/list',
-    'core/heading',
     'cgb/block-mim-title-lead',
     'cgb/block-mim-img-txt',  
-    'cgb/block-mim-img' 
+    'cgb/block-mim-img',
+    'cgb/block-mim-img-title',
+    'cgb/block-mim-list-container',
+    'cgb/block-mim-list-item',
+    'cgb/block-mim-list-item-title',
+    'cgb/block-mim-list-outer-container' 
 	);
  /* 
 	if( $post->post_type === 'page' ) {
