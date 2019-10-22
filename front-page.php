@@ -14,7 +14,12 @@
         
             <!-- the loop -->
             <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
-            <div class="tiles__item">
+                <div class="tiles__item <?php foreach((get_the_category()) as $category){
+                        echo "tiles__filter--".$category->name." ";
+                    }?>" data-category="<?php foreach((get_the_category()) as $category){
+                        echo $category->name." ";
+                    }?>" 
+                >
                     <a class="tiles__item-link" href="<?php the_permalink(); ?>">
                         <div class="tiles__img-wrapper">
                             <img class="random initial loading"
