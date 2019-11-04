@@ -33,6 +33,14 @@ function mim_features() {
       'before_widget' => '<div class="pre-title">',
       'after_widget' => '</div>',
       ) );
+
+    register_sidebar( array(
+      'name' => 'Text in header',
+      'id' => 'headertext',
+      'description' => 'Text in header, running from left to right',
+      'before_widget' => '<div class="animated-text">',
+      'after_widget' => '</div>',
+      ) );
     add_theme_support('post-thumbnails');
     /* add_image_size('mimLandscape', 400, 260, true);
     add_image_size('mimPortrait', 480, 650, true);

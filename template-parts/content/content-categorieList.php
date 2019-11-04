@@ -6,6 +6,7 @@
     ?>
     <div class="filter__wrapper">
         <?php
+        $taxonomy = array();
         $terms = get_terms( $taxonomy );
         $count = count($terms);
         if ( $count > 0 ){

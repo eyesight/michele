@@ -8,7 +8,12 @@
   <body <?php body_class(); ?>>
     <header class="header">
     <div class="header__container">
-      <a class="header__logo" href="<?php echo site_url() ?>"></a>
+        <a class="header__logo" href="<?php echo site_url() ?>"></a>
+      <?php
+        if(is_active_sidebar('headertext')){
+            dynamic_sidebar('headertext');
+        }
+      ?>
       <div class="main-navigation__burger mobile-only" data-toggles-nav="main-navigation__ul">
           <span class="main-navigation__line main-navigation__line-1"></span>
           <span class="main-navigation__line main-navigation__line-2"></span>
