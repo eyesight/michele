@@ -27,7 +27,9 @@
                             data-was-processed="true">
                         </div>
                         <div class="tiles__text-wrapper">
-                            <div class="tiles__item-title"></div>
+                            <div class="tiles__item-title">
+                                <?php the_title() ?>
+                            </div>
                         </div>
                     </a>
                 </div>

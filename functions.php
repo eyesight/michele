@@ -49,6 +49,18 @@ function mim_features() {
 
 add_action('after_setup_theme', 'mim_features');
 
+function the_category_valid() {
+  $categories = get_the_category();
+     $separator = '';
+     $output = '';
+     if($categories){
+       foreach($categories as $category) {
+         $output .= '<p class="title-lead__categories">'.$category->cat_name.'</p>';
+       }
+       echo trim($output, $separator);
+     }
+ }
+
 add_filter( 'allowed_block_types', 'mim_allowed_block_types', 10, 2 );
  
 function mim_allowed_block_types( $allowed_blocks, $post ) {
@@ -59,17 +71,19 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
     'cgb/block-mim-title-lead',
     'cgb/block-mim-img-txt',  
     'cgb/block-mim-img',
-    'cgb/block-mim-img-title',
-    'cgb/block-mim-list-container',
-    'cgb/block-mim-list-item',
-    'cgb/block-mim-list-item-title',
-    'cgb/block-mim-list-outer-container' 
+    'cgb/block-mim-img-title'
 	);
- /* 
+
 	if( $post->post_type === 'page' ) {
-		$allowed_blocks[] = 'core/shortcode';
-  } */
- 
+		$allowed_blocks[] = 'cgb/block-mim-img-txt';
+		$allowed_blocks[] = 'cgb/block-mim-img';
+		$allowed_blocks[] = 'cgb/block-mim-img-title';
+		$allowed_blocks[] = 'cgb/block-mim-list-container';
+		$allowed_blocks[] = 'cgb/block-mim-list-item';
+		$allowed_blocks[] = 'cgb/block-mim-list-item-title';
+		$allowed_blocks[] = 'cgb/block-mim-list-outer-container';
+  } 
+
 	return $allowed_blocks;
  
 }
