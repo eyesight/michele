@@ -9,6 +9,12 @@
     <header class="header">
     <div class="header__container">
         <a class="header__logo" href="<?php echo site_url() ?>"></a>
+        <?php wp_nav_menu( array( 
+          'theme_location' => 'main-menu',
+          'container'       => '',
+          'menu_id'         => '',
+          'menu_class'      => 'header__navigation' 
+        )); ?>
       <?php
         if(is_active_sidebar('headertext')){
             dynamic_sidebar('headertext');
@@ -21,7 +27,7 @@
       </div>
       <nav class="main-navigation" id="menu-headermenu">
         <?php wp_nav_menu( array( 
-          'theme_location' => 'main-menu',
+          'theme_location' => 'main-menu-mobile',
           'container'       => '',
           'menu_id'         => '',
           'menu_class'      => 'main-navigation__ul' 

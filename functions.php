@@ -15,6 +15,7 @@ add_action('wp_enqueue_scripts', 'mim_files');
 
 function mim_features() {
   register_nav_menu('main-menu', 'Main Menu Header');
+  register_nav_menu('main-menu-mobile', 'Main Menu Header Mobile');
   register_nav_menu('social-menu', 'Social Media Footer');
   register_sidebar( array(
     'name' => 'Footer Adress',
