@@ -7,7 +7,10 @@
         $wpb_all_query = new WP_Query(
             array('post_type'=>'post', 
             'post_status'=>'publish', 
-            'posts_per_page'=>-1
+            'posts_per_page'=>-1,
+            'meta_key' => 'date',
+	        'orderby' => 'meta_value',
+	        'order' => 'DESC'
             )); ?>
         
         <?php if ( $wpb_all_query->have_posts() ) : ?>
@@ -22,9 +25,7 @@
                 >
                     <a class="tiles__item-link" href="<?php the_permalink(); ?>">
                         <div class="tiles__img-wrapper">
-                            <img class="random initial loading"
-                            src="<?php the_post_thumbnail_url( 'category-thumb' );?>"
-                            data-was-processed="true">
+                            <img src="<?php the_post_thumbnail_url( 'category-thumb' );?>">
                         </div>
                         <div class="tiles__text-wrapper">
                             <div class="tiles__item-title">

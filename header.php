@@ -20,11 +20,11 @@
             dynamic_sidebar('headertext');
         }
       ?>
-      <div class="main-navigation__burger mobile-only" data-toggles-nav="main-navigation__ul">
+      <nav class="main-navigation__burger mobile-only" data-toggles-nav="main-navigation__ul">
           <span class="main-navigation__line main-navigation__line-1"></span>
           <span class="main-navigation__line main-navigation__line-2"></span>
           <span class="main-navigation__line main-navigation__line-3"></span>
-      </div>
+      </nav>
       <nav class="main-navigation" id="menu-headermenu">
         <?php wp_nav_menu( array( 
           'theme_location' => 'main-menu-mobile',
