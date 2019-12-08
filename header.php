@@ -15,11 +15,15 @@
           'menu_id'         => '',
           'menu_class'      => 'header__navigation' 
         )); ?>
-      <?php
-        if(is_active_sidebar('headertext')){
-            dynamic_sidebar('headertext');
-        }
-      ?>
+        <div class="animated-text">
+          <div class="animated-text__inner">
+            <?php
+              if(is_active_sidebar('headertext')){
+                  dynamic_sidebar('headertext');
+              }
+            ?>
+        </div>
+      </div>
       <nav class="main-navigation__burger mobile-only" data-toggles-nav="main-navigation__ul">
           <span class="main-navigation__line main-navigation__line-1"></span>
           <span class="main-navigation__line main-navigation__line-2"></span>

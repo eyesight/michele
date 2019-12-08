@@ -39,7 +39,7 @@ function mim_features() {
       'name' => 'Text in header',
       'id' => 'headertext',
       'description' => 'Text in header, running from left to right',
-      'before_widget' => '<div class="animated-text">',
+      'before_widget' => '<div class="animated-text__item">',
       'after_widget' => '</div>',
       ) );
     add_theme_support('post-thumbnails');
@@ -69,10 +69,12 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
     console.table( wp.blocks.getBlockTypes() );
 */
 	$allowed_blocks = array(
-    'cgb/block-mim-title-lead',
+    'cgb/block-mim-text',  
     'cgb/block-mim-img-txt',  
     'cgb/block-mim-img',
-    'cgb/block-mim-img-title'
+    'cgb/block-mim-img-title',
+    'cgb/block-mim-img-up',
+    'cgb/block-mim-title-h3'
 	);
 
 	if( $post->post_type === 'page' ) {
@@ -83,6 +85,8 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
 		$allowed_blocks[] = 'cgb/block-mim-list-item';
 		$allowed_blocks[] = 'cgb/block-mim-list-item-title';
 		$allowed_blocks[] = 'cgb/block-mim-list-outer-container';
+		$allowed_blocks[] = 'cgb/block-mim-text';
+		$allowed_blocks[] = 'cgb/block-mim-title-h3';
   } 
 
 	return $allowed_blocks;

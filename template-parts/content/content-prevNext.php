@@ -50,6 +50,5 @@
                 <a href="<?= get_the_permalink($nextID) ?>" rel="next"><?= get_the_title($nextID) ?></a>
             </span>
         </div>
-        
     <?php endif; ?>
 </div>  
