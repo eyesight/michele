@@ -31,6 +31,11 @@
                             <div class="tiles__item-title">
                                 <?php the_title() ?>
                             </div>
+                            <div class="tiles__item-copyright">
+                                <?php if(get_field('copyright') !== '') : ?>
+                                    Entstanden bei <?php echo get_field('copyright'); ?>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </a>
                 </div>
