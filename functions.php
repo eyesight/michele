@@ -17,6 +17,7 @@ function mim_features() {
   register_nav_menu('main-menu', 'Main Menu Header');
   register_nav_menu('main-menu-mobile', 'Main Menu Header Mobile');
   register_nav_menu('social-menu', 'Social Media Footer');
+  register_nav_menu('footer-menu', 'Footer Menu');
   register_sidebar( array(
     'name' => 'Footer Adress',
     'id' => 'footer-adress',

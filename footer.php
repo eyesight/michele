@@ -18,7 +18,12 @@
         )); ?>
     </div>
     <div class="footer__right">
-        <a href="#">impressum</a>
+      <?php wp_nav_menu( array( 
+          'theme_location' => 'footer-menu',
+          'container' => '',
+          'menu_id' => '',
+          'menu_class' => 'footer__menu-right',
+        )); ?>
     </div>
   </div>
 </footer>
