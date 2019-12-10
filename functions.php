@@ -70,12 +70,13 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
     console.table( wp.blocks.getBlockTypes() );
 */
 	$allowed_blocks = array(
-    'cgb/block-mim-text',  
     'cgb/block-mim-img-txt',  
     'cgb/block-mim-img',
     'cgb/block-mim-img-title',
     'cgb/block-mim-img-up',
-    'cgb/block-mim-title-h3'
+    'core/video',
+    "core-embed/youtube",
+    "core-embed/vimeo",
 	);
 
 	if( $post->post_type === 'page' ) {
