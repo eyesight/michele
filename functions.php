@@ -44,9 +44,6 @@ function mim_features() {
       'after_widget' => '</div>',
       ) );
     add_theme_support('post-thumbnails');
-    /* add_image_size('mimLandscape', 400, 260, true);
-    add_image_size('mimPortrait', 480, 650, true);
-    add_image_size('mimBanner', 1500, 350, true); */
 }
 
 add_action('after_setup_theme', 'mim_features');
@@ -57,7 +54,8 @@ function the_category_valid() {
      $output = '';
      if($categories){
        foreach($categories as $category) {
-         $output .= '<p class="title-lead__categories">'.$category->cat_name.'</p>';
+         $category_link = get_category_link($category->cat_ID);
+         $output .= '<p class="title-lead__categories"><a href="'.$category_link.'" >'.$category->cat_name.'</a></p>';
        }
        echo trim($output, $separator);
      }
@@ -105,5 +103,7 @@ function exclude_category_home( $query ) {
   }
    
   add_filter( 'pre_get_posts', 'exclude_category_home' );
+  include_once('inc/acf');
+
 
 ?>

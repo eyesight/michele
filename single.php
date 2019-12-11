@@ -11,7 +11,7 @@
 						<?php 
 							$value = get_field('copyright');
 							if( $value ) {
-								echo '<p class="title-lead__copyright" placeholder="copyright">@' . 
+								echo '<p class="title-lead__copyright" placeholder="copyright">©' . 
 								 $value
 								. '</p>';
 							} else {
@@ -24,7 +24,7 @@
 						<?php the_title()?>
 					</h1>
 					<p class="title-lead__lead" placeholder="LeadText">
-						<?php the_subtitle()?>
+						<?php echo get_field('lead')?>
 					</p>
 				</div>
 			</div>

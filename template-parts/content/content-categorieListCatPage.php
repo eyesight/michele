@@ -9,10 +9,17 @@
         $taxonomy = array();
         $terms = get_terms( $taxonomy );
         $count = count($terms);
+        $activeClassName = '';
+       
         if ( $count > 0 ){
             foreach ( $terms as $term ) {
                 if($term->taxonomy === 'category'){
-                    echo "<button class='filter__button' data-filter-target='".$term->slug."'><?xml version='1.0' encoding='utf-8'?>
+                    if($cat === $term->term_id){
+                        $activeClassName = 'active';
+                    } else{
+                        $activeClassName = '';
+                    }
+                    echo "<button class='filter__button ". $activeClassName ."' data-filter-target='".$term->slug."'><?xml version='1.0' encoding='utf-8'?>
                     <svg class='filter__arrow' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'
                          viewBox='0 0 24 24' xml:space='preserve'>
                          <g><polyline class='st0' points='7,5 19,5 19,17'/><line class='st0' x1='19' y1='5' x2='4' y2='20'/></g>

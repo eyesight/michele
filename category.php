@@ -1,6 +1,6 @@
 <?php get_header(); ?>
     <div class="content">
-        <?php get_template_part( 'template-parts/content/content-categorieList' ); ?>
+        <?php get_template_part( 'template-parts/content/content-categorieListCatPage' ); ?>
         <div class="grid-container tiles">
         <?php 
         // the query
@@ -14,7 +14,6 @@
             )); ?>
         
         <?php if ( $wpb_all_query->have_posts() ) : ?>
-        
             <!-- the loop -->
             <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
                 <div class="tiles__item <?php foreach((get_the_category()) as $category){
@@ -47,4 +46,5 @@
             <p><?php _e( 'Sorry, no posts' ); ?></p>
         <?php endif; ?>
     </div>
+
 <?php get_footer(); ?> 
