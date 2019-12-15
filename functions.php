@@ -61,7 +61,7 @@ function the_category_valid() {
      }
  }
 
-add_filter( 'allowed_block_types', 'mim_allowed_block_types', 10, 2 );
+//add_filter( 'allowed_block_types', 'mim_allowed_block_types', 10, 2 );
  
 function mim_allowed_block_types( $allowed_blocks, $post ) {
  /* this shows all blocks in console of Editor
@@ -103,7 +103,7 @@ function exclude_category_home( $query ) {
   }
    
   add_filter( 'pre_get_posts', 'exclude_category_home' );
-  include_once('inc/acf');
+  include_once('inc/acf.php');
 
 
 ?>
