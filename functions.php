@@ -1,13 +1,10 @@
 <?php
 function mim_files() {
   wp_enqueue_script('main-mim-js', get_theme_file_uri('dist/js/script.min.js'), NULL, '1.0', true);
-  wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css?family=Bree+Serif&display=swap');
-  wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css?family=Bree+Serif|Open+Sans&display=swap');
   wp_enqueue_style( 'mim_styles', get_template_directory_uri() . '/dist/css/wordpress.css' ); 
 }
 
 function site_block_editor_styles() {
-    wp_enqueue_style( 'mim-site-block-editor-styles', get_template_directory_uri() . '/dist/css/wordpress.css' );
     wp_enqueue_style( 'site-block-editor-styles', get_template_directory_uri() . '/dist/css/style-editor.css' );
 }
 add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' ); 
@@ -61,7 +58,7 @@ function the_category_valid() {
      }
  }
 
-//add_filter( 'allowed_block_types', 'mim_allowed_block_types', 10, 2 );
+add_filter( 'allowed_block_types', 'mim_allowed_block_types', 10, 2 );
  
 function mim_allowed_block_types( $allowed_blocks, $post ) {
  /* this shows all blocks in console of Editor
@@ -71,10 +68,11 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
     'cgb/block-mim-img-txt',  
     'cgb/block-mim-img',
     'cgb/block-mim-img-title',
-    'cgb/block-mim-img-up',
+    'cgb/block-mim-img-up', 
     'core/video',
     "core-embed/youtube",
     "core-embed/vimeo",
+    "core/image"
 	);
 
 	if( $post->post_type === 'page' ) {
@@ -104,6 +102,5 @@ function exclude_category_home( $query ) {
    
   add_filter( 'pre_get_posts', 'exclude_category_home' );
   include_once('inc/acf.php');
-
 
 ?>
