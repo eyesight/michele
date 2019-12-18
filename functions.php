@@ -47,12 +47,12 @@ add_action('after_setup_theme', 'mim_features');
 
 function the_category_valid() {
   $categories = get_the_category();
-     $separator = ', ';
+     $separator = ',';
      $output = '';
      if($categories){
        foreach($categories as $category) {
          $category_link = get_category_link($category->cat_ID);
-         $output .= '<p class="title-lead__categories"><a href=" '.$category_link.'" >'.$category->cat_name.'</a></p>, ';
+         $output .= '<p class="title-lead__categories"><a href=" '.$category_link.'" >'.$category->cat_name.'</a></p>,';
        }
        echo trim($output, $separator);
      }
