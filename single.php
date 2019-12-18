@@ -5,19 +5,38 @@
 		<div class="content title-lead">
 			<div class="grid-container title-lead__container">
 				<div class="title-lead__categories-wrapper">
-					<p class="title-lead__categories">
+					<div class="title-lead__categories-container">
 						<?php the_category_valid(); ?>
-					</p>
+					</div>
+					<div class="title-lead__credits-container">
+						<div class="title-lead__credit">
+							<?php 
+								for($i=0; $i<20; $i++){
+									$creditvar = 'credits' . $i;
+									$creditName = get_field($creditvar)['name'];
+									$creditJob = get_field($creditvar)['job'];
+									if($creditName){
+										echo '<div class="title-lead__credit-item">';
+										echo '<p class="title-lead__text-bold">' .$creditJob. '</p>';
+										echo '<p class="title-lead__text">' .$creditName. '</p>';
+										echo '</div>';
+									}
+								}
+							?>
+						</div>
+					</div>
+					<div class="title-lead__copyright-container">
 						<?php 
 							$value = get_field('copyright');
 							if( $value ) {
-								echo '<p class="title-lead__copyright" placeholder="copyright">©' . 
-								 $value
+								echo '<p class="title-lead__copyright">©' . 
+								$value
 								. '</p>';
 							} else {
 								echo '';
 							}
 						?>
+					</div>
 				</div>
 				<div class="title-lead__wrapper">
 					<h1 class="title-lead__title" placeholder="Titel">
