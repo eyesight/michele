@@ -10,6 +10,9 @@ function site_block_editor_styles() {
 add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' ); 
 add_action('wp_enqueue_scripts', 'mim_files');  
 
+//get acf-stuff
+require_once 'inc/acf.php';
+
 function mim_features() {
   register_nav_menu('main-menu', 'Main Menu Header');
   register_nav_menu('main-menu-mobile', 'Main Menu Header Mobile');
@@ -101,6 +104,5 @@ function exclude_category_home( $query ) {
   }
    
   add_filter( 'pre_get_posts', 'exclude_category_home' );
-  include_once('inc/acf.php');
 
 ?>
