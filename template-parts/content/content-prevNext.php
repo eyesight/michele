@@ -24,7 +24,7 @@
         }
     }
     ?>
-    <div class="content prev-next">
+<div class="content prev-next">
     <?php if($prevID === $idOfFrontpage): ?>
         <div class="prev-next__arrow prev-next__left">
             <span class="prev">
@@ -38,6 +38,11 @@
             </span>
         </div>
     <?php endif; ?>
+    <button class="totop">
+        <span class="totop__text">
+            to top
+        </span>
+    </button>
     <?php if($nextID === $idOfFrontpage): ?>
         <div class="prev-next__arrow prev-next__right">
             <span class="next">
