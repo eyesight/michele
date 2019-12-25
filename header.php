@@ -24,17 +24,5 @@
             ?>
         </div>
       </div>
-      <nav class="main-navigation__burger mobile-only" data-toggles-nav="main-navigation__ul">
-          <span class="main-navigation__line main-navigation__line-1"></span>
-          <span class="main-navigation__line main-navigation__line-2"></span>
-      </nav>
-      <nav class="main-navigation" id="menu-headermenu">
-        <?php wp_nav_menu( array( 
-          'theme_location' => 'main-menu-mobile',
-          'container'       => '',
-          'menu_id'         => '',
-          'menu_class'      => 'main-navigation__ul' 
-        )); ?>
-      </nav> 
     </div>
   </header>

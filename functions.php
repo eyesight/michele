@@ -70,7 +70,6 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
 	$allowed_blocks = array(
     'cgb/block-mim-img-txt',  
     'cgb/block-mim-img',
-    'cgb/block-mim-img-title',
     'cgb/block-mim-img-up', 
     'core/video',
     "core-embed/youtube",
