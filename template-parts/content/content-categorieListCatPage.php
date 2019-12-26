@@ -2,7 +2,7 @@
     <div class="logo-content">
         <a href="<?php echo site_url() ?>"class="logo-content__link">
             <img class="logo-content__img desktop-only" src="<?php echo get_template_directory_uri(); ?>/dist/svg/logo-large.min.svg"/>
-            <img class="logo-content__img mobile-only" src="<?php echo get_template_directory_uri(); ?>/dist/svg/logo.min.svg"/>
+            <img class="logo-content__img logo-content__img--small mobile-only" src="<?php echo get_template_directory_uri(); ?>/dist/svg/logo.min.svg"/>
         </a>
     </div>
     <div class="filter__wrapper">
