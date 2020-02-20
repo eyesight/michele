@@ -11,11 +11,11 @@
     foreach($all_posts->posts as $key => $value) {
         if($value->ID == $post->ID){
             if($key === 0){
-                $prevID = $idOfFrontpage;
+                $prevID = -1;
                 $nextID = $all_posts->posts[$key + 1]->ID;
             }else if($key === $sizeOfArray){
                 $prevID = $all_posts->posts[$key - 1]->ID;
-                $nextID = $idOfFrontpage;
+                $nextID = -1;
             }else{
                 $prevID = $all_posts->posts[$key - 1]->ID;
                 $nextID = $all_posts->posts[$key + 1]->ID; 
@@ -25,16 +25,16 @@
     }
     ?>
 <div class="content prev-next">
-    <?php if($prevID === $idOfFrontpage): ?>
+    <?php if($prevID === -1): ?>
         <div class="prev-next__arrow prev-next__left">
             <span class="prev">
-                <a href="<?= get_the_permalink($prevID) ?>" rel="prev">zurück zur Übersicht</a>
+                <a href="<?php echo get_home_url(); ?>" rel="prev">zurück zur Übersicht</a>
             </span>
         </div>
     <?php elseif($prevID): ?>
         <div class="prev-next__arrow prev-next__left">
             <span class="prev">
-                <a href="<?= get_the_permalink($prevID) ?>" rel="prev"><?= get_the_title($prevID) ?></a>
+                <a href="<?php echo get_the_permalink($prevID) ?>" rel="prev"><?php echo get_the_title($prevID) ?></a>
             </span>
         </div>
     <?php endif; ?>
@@ -43,16 +43,16 @@
             to top
         </span>
     </button>
-    <?php if($nextID === $idOfFrontpage): ?>
+    <?php if($nextID === -1): ?>
         <div class="prev-next__arrow prev-next__right">
             <span class="next">
-                <a href="<?= get_the_permalink($nextID) ?>" rel="next">zurück zur Übersicht</a>
+                <a href="<?php echo get_home_url(); ?>" rel="next">zurück zur Übersicht</a>
             </span>
         </div>
     <?php elseif($nextID): ?>
         <div class="prev-next__arrow prev-next__right">
             <span class="next">
-                <a href="<?= get_the_permalink($nextID) ?>" rel="next"><?= get_the_title($nextID) ?></a>
+                <a href="<?php echo get_the_permalink($nextID) ?>" rel="next"><?php echo get_the_title($nextID) ?></a>
             </span>
         </div>
     <?php endif; ?>
