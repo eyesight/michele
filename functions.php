@@ -25,6 +25,7 @@ add_action('wp_enqueue_scripts', 'flyra_files');
 
 function flyra_features() {
   register_nav_menu('main-menu', 'Main Menu Header');
+  register_nav_menu('service-menu', 'Service Menu Left');
   register_nav_menu('footer-menu', 'Footer Left Menu');
   register_nav_menu('footer-center-menu', 'Footer Center Menu');
   register_nav_menu('footer-right-menu', 'Footer Right Menu');
@@ -32,7 +33,7 @@ function flyra_features() {
   register_sidebar( array(
     'name' => 'Copyright',
     'id' => 'copyright',
-    'description' => 'Copyright',
+    'description' => 'Copyright in footer. Use a Text-Element',
     'before_widget' => '<div class="footer__copyright">',
     'after_widget' => '</div>',
     ) );
@@ -40,14 +41,13 @@ function flyra_features() {
   register_sidebar( array(
     'name' => 'Link on Footer',
     'id' => 'footer-link',
-    'description' => 'Link in Footer',
+    'description' => 'Link in Footer. Use a Text-Element and make a Link. Please add target=_blank [_blank in quotes] to the link. <a target="_blank" href="https://www.w3schools.com/tags/att_a_target.asp">look here</a>',
     'before_widget' => '<div class="footer__info-right">',
     'after_widget' => '</div>',
   ) );
 
   add_theme_support('post-thumbnails');
 }
-
 add_action('after_setup_theme', 'flyra_features');
 
 function flyra_allowed_block_types( $allowed_blocks, $post ) {

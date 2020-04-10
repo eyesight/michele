@@ -3,19 +3,20 @@ $locations = get_nav_menu_locations(); //get all menu locations
 $menuL = wp_get_nav_menu_object($locations['footer-menu']);//get the menu object
 $menuR = wp_get_nav_menu_object($locations['footer-right-menu']);//get the menu object
 ?>
+</main>
 <footer class="footer">
     <div class="footer__top">
         <div class="footer__left">
             <h4 class="footer__h4 title-h4"><?php echo $menuL->name; ?></h4>
             <nav class="footer__left-nav">
                 <?php
-                    wp_nav_menu( [
+                    wp_nav_menu([
                       'theme_location' => 'footer-menu',
                       'container'      => 'ul',
                       'menu_id'        => 'footer-nav',
                       'menu_class'     => 'footer__left-ul',
                       'walker'         => new FooterNavWalker(),
-                    ] );
+                    ]);
                 ?>
             </nav>
         </div>
@@ -71,7 +72,7 @@ $menuR = wp_get_nav_menu_object($locations['footer-right-menu']);//get the menu 
               dynamic_sidebar('footer-link');
           }
         ?>
-    </div>
+    </div> 
 </footer>
 <?php wp_footer(); ?>
 </body>
