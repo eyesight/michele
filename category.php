@@ -17,7 +17,7 @@
 <?php
 $current_category = get_queried_object(); ////getting current category
 
-function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $currentID ) {
+function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $currentCat ) {
     $taxonomy   = $taxonomy;
     $post_type  = $post_type;
 
@@ -30,39 +30,39 @@ function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $cur
             'hide_empty' => true // <-- change to false to also display empty ones
         )
     );
-    ?>
-    <section class="categories" data-sticky-container>
-            
-        <?php
-        // Iterate through all categories to display each individual category
-        if (!empty( $categories ) && ! is_wp_error($categories)){
-            foreach ( $categories as $category ) {
-                $cat_name = $category->name;
-                $cat_id   = $category->term_id;
-                $cat_slug = $category->slug;
+    ?>            
+    <?php
+    // Iterate through all categories to display each individual category
+    if (!empty( $categories ) && ! is_wp_error($categories)){
+        foreach ( $categories as $category ) {
+            $cat_name = $category->name;
+            $cat_id   = $category->term_id;
+            $cat_slug = $category->slug;
+            $cat_subtitle_box = get_field('box-tandem-subtitle', $currentCat);
+            $cat_title_box = get_field('box-tandem-title', $currentCat);
 
-                if($cat_id === $currentID) {
-                    // Get all the subcategories that belong to the current category
-                    $subcategories = get_terms(
-                        array(
-                            'taxonomy'   => $taxonomy,
-                            'parent'     => $cat_id, // <-- The parent is the current category
-                            'orderby'    => 'term_id',
-                            'hide_empty' => true
-                        )
-                    );
-                    
-                    // Iterate through all subcategories to display each individual subcategory
-                    foreach ( $subcategories as $subcategory ) {
+            if($cat_id === $currentCat->cat_ID) {
+                // Get all the subcategories that belong to the current category
+                $subcategories = get_terms(
+                    array(
+                        'taxonomy'   => $taxonomy,
+                        'parent'     => $cat_id, // <-- The parent is the current category
+                        'orderby'    => 'term_id',
+                        'hide_empty' => true
+                    )
+                );
+                
+                // Iterate through all subcategories to display each individual subcategory
+                foreach ( $subcategories as $subcategory ) {
 
-                        $subcat_name = $subcategory->name;
-                        $subcat_id   = $subcategory->term_id;
-                        $subcat_slug = $subcategory->slug;
-                        $subcat_desc = $subcategory->description;
+                    $subcat_name = $subcategory->name;
+                    $subcat_id   = $subcategory->term_id;
+                    $subcat_slug = $subcategory->slug;
+                    $subcat_desc = $subcategory->description;
 
-                        ?>
-
-                        <div class="category-title" data-margin-top="130" data-sticky-class="is-sticky">
+                    ?>
+                    <section class="categories" data-sticky-container>
+                        <div id="<?php echo $subcat_slug ?>" class="category-title" data-margin-top="130" data-sticky-class="is-sticky">
                             <div class="category-title__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50.208" height="50.208" viewBox="0 0 50.208 50.208">
                                     <g class="icon-sonne" transform="translate(-1 -1)">
@@ -70,7 +70,7 @@ function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $cur
                                         <path id="Pfad_238" data-name="Pfad 238" d="M26.1,2V8.428m0,35.353v6.428m24.1-24.1H43.781m-35.353,0H2M9.071,9.071l4.5,4.5M38.638,38.638l4.5,4.5m0-34.067-4.5,4.5M13.57,38.638l-4.5,4.5" fill="none" stroke="#020440" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                     </g>
                                 </svg>                  
-                            </div>
+                            </div> 
                             <div class="category-title__pretitle"><?php echo $subcat_name ?></div>
                             <h3 class="category-title__title"><?php echo $subcat_desc ?></h3>
                             <a href="#" class="arrow-link category-title__link">
@@ -171,27 +171,45 @@ function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $cur
                                         <p class="category-item__medium-text"><?php the_field('preiszusatz'); ?></p>
                                     <?php endif; ?>
                                 </div>
-                                <?php
-                            endwhile;
-                            echo '</div>';
-                        else:
-                            echo 'No posts found';
-                        endif;
+                                <?php endwhile; ?>
+                             </div>
+                    </section>
+                    
+                    <?php else:
+                        echo 'No posts found';
+                    endif;
                         wp_reset_query();
-                    }
-                    }
-                    ?>
+                    }}?>
+         <?php } ?>
+            <section class="layout-bg">
+                <div class="title-h2">
+                    <p class="title-h2__preline"><?php echo $cat_subtitle_box ?></p>
+                    <h2 class="title-h2__title"><?php echo $cat_title_box ?></h2>
                 </div>
-                <?php
-            }
-        } else { ?>
-            <div>there are no categories found</div>
-        <?php } ?>
-        </section>      
+                <div class="tile-blue-wrapper">
+                    <div class="tile-blue">
+                        <img class="tile-blue__icon" src="./../dist/svg/Arrow-Link.min.svg">
+                        <h3 class="tile-blue__title">Frag mich direkt mit einem Anruf oder per Whatsapp Nachricht.</h3>
+                        <button class="tile-blue__button">
+                            <span class="tile-blue__button-text">Flüge ansehen</span><span class="tile-blue__button-arrow"></span>
+                        </button>   
+                    </div>
+                    <div class="tile-blue">
+                        <img class="tile-blue__icon" src="./../dist/svg/Arrow-Link.min.svg">
+                        <h3 class="tile-blue__title">Frag mich direkt mit einem Anruf oder per Whatsapp Nachricht.</h3>
+                        <button class="tile-blue__button">
+                            <span class="tile-blue__button-text">Flüge ansehen</span><span class="tile-blue__button-arrow"></span>
+                        </button>   
+                    </div>
+                </div>
+            </section>
+        <?php } else { ?>
+        <div>there are no categories found</div>
+    <?php } ?>
    <?php
 }
 
-ow_categories_with_subcategories_and_posts( 'category', 'post', $current_category->cat_ID );
+ow_categories_with_subcategories_and_posts( 'category', 'post', $current_category );
 
 ?>
 <?php get_footer(); ?> 
