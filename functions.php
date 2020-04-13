@@ -41,6 +41,22 @@ function flyra_features() {
     'before_widget' => '<div class="footer__info-right">',
     'after_widget' => '</div>',
   ) );
+  
+  register_sidebar( array(
+    'name' => 'Kontakt 1 in blauer Box',
+    'id' => 'contact-one',
+    'description' => 'Bitte Text-Widget benutzen und im Titel den Text und im Content den Link für die Telefonnummer hinterlegen',
+    'before_widget' => '<div class="tile-blue__text-wrapper">',
+    'after_widget' => '</div>'
+  ) );
+
+  register_sidebar( array(
+    'name' => 'Kontakt 2 in blauer Box',
+    'id' => 'contact-two',
+    'description' => 'Bitte Text-Widget benutzen und im Titel den Text und im Content den Link für das Kontaktformular hinterlegen',
+    'before_widget' => '<div class="tile-blue__text-wrapper">',
+    'after_widget' => '</div>'
+  ) );
 
   add_theme_support('post-thumbnails');
 }
@@ -77,7 +93,9 @@ function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $cur
                   array(
                       'taxonomy'   => $taxonomy,
                       'parent'     => $cat_id, // <-- The parent is the current category
-                      'orderby'    => 'term_id',
+                      'meta_key'       => 'order-cat',
+                      'orderby'        => 'meta_value',
+                      'order'          => 'ASC',
                       'hide_empty' => true
                   )
               );
@@ -120,6 +138,8 @@ function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $cur
                               'post_type'      => $post_type,
                               'posts_per_page' => -1, // <-- Show all posts
                               'hide_empty'     => true,
+                              'meta_key'       => 'ordering',
+	                            'orderby'        => 'meta_value',
                               'order'          => 'ASC',
                               'tax_query'      => array(
                                   array(
@@ -220,22 +240,7 @@ function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $cur
                   <p class="title-h2__preline"><?php echo $cat_subtitle_box ?></p>
                   <h2 class="title-h2__title"><?php echo $cat_title_box ?></h2>
               </div>
-              <div class="tile-blue-wrapper">
-                  <div class="tile-blue">
-                      <img class="tile-blue__icon" src="./../dist/svg/Arrow-Link.min.svg">
-                      <h3 class="tile-blue__title">Frag mich direkt mit einem Anruf oder per Whatsapp Nachricht.</h3>
-                      <button class="tile-blue__button">
-                          <span class="tile-blue__button-text">Flüge ansehen</span><span class="tile-blue__button-arrow"></span>
-                      </button>   
-                  </div>
-                  <div class="tile-blue">
-                      <img class="tile-blue__icon" src="./../dist/svg/Arrow-Link.min.svg">
-                      <h3 class="tile-blue__title">Frag mich direkt mit einem Anruf oder per Whatsapp Nachricht.</h3>
-                      <button class="tile-blue__button">
-                          <span class="tile-blue__button-text">Flüge ansehen</span><span class="tile-blue__button-arrow"></span>
-                      </button>   
-                  </div>
-              </div>
+              <?php get_template_part( 'template-parts/content/content-blueTile' ); ?>
           </section>
       <?php } else { ?>
       <div>there are no categories found</div>
@@ -252,6 +257,9 @@ function ow_categories_and_posts( $taxonomy, $post_type, $currentCat ) {
         array('post_type'=>'post', 
               'post_status'=>'publish', 
               'posts_per_page'=>-1,
+              'meta_key'       => 'order-information',
+              'orderby'        => 'meta_value',
+              'order'          => 'ASC',
               'cat' => $currentCat->cat_ID
         )); ?>
 
@@ -280,22 +288,22 @@ function ow_categories_and_posts_about_page( $taxonomy, $post_type, $currentCat 
         array('post_type'=>'post', 
               'post_status'=>'publish', 
               'posts_per_page'=>-1,
-              'orderby', 'title',
-              'order'          => 'ASC',
+              'orderby'=> 'title',
+              'order' => 'ASC',
               'cat' => $currentCat->cat_ID
         )); ?>
 
     <?php if ( $wpb_all_query->have_posts() ) : ?>
     <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
       <div class="image-tiles">
-          <p class="image__subtitle"><?php the_title(); ?></p>
-          <h3 class="image__title"><?php the_field('title') ?></h3>
-          <a href="<?php the_field('link') ?>" class="arrow-link category-title__link">
+          <p class="image-tiles__subtitle"><?php the_title(); ?></p>
+          <h3 class="image-tiles__title"><?php the_field('title') ?></h3>
+          <a href="<?php the_field('link') ?>" class="arrow-link image-tiles__link">
               <span class="arrow-link__button-text">
                 <?php the_field('link-text') ?>                              </span>
               <span class="arrow-link__button-arrow"></span>
           </a>
-          <div class="text-tiles__text">
+          <div class="image-tiles__embed">
               <?php the_content() ?>
           </div>
       </div>
