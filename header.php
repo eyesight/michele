@@ -10,10 +10,10 @@
     <div class="header__logo-container">
         <a href="<?php echo site_url() ?>" class="logo">
             <svg class="logo__svg" xmlns="http://www.w3.org/2000/svg" width="309.962" height="45.664" viewBox="0 0 309.962 45.664">
-                <g id="Logo" transform="translate(-108.724 192.893)">
+                <g id="Logo" class="logo__icon"transform="translate(-108.724 192.893)">
                 <circle id="Ellipse_31" data-name="Ellipse 31" class="cls-1" cx="7.676" cy="7.676" r="7.676" transform="translate(143.582 -167.732)"/>
                 <path id="Pfad_303" data-name="Pfad 303" class="cls-1" d="M151.259-186.757c17.473,0,32.809,6.209,41.487,15.095.517.53,1.307-.161.964-.842-6.184-12.283-22.854-21.388-42.451-21.388s-36.268,9.1-42.452,21.388c-.343.682.448,1.372.965.842C118.449-180.549,133.785-186.757,151.259-186.757Z" transform="translate(0 1)"/>
-                <g id="Gruppe_252" data-name="Gruppe 252" transform="translate(214.758 -174.587)">
+                <g id="text" class="logo__text" data-name="Gruppe 252" transform="translate(214.758 -174.587)">
                     <path id="Pfad_304" data-name="Pfad 304" class="cls-1" d="M309.265-150.349H316.8v3.125h-7.539v8.252h-3.29v-19.189h11.376v3.125h-8.087Z" transform="translate(-305.975 159.697)"/>
                     <path id="Pfad_305" data-name="Pfad 305" class="cls-1" d="M331.542-161.018h3.289v20.725h-3.289Z" transform="translate(-317.798 161.018)"/>
                     <path id="Pfad_306" data-name="Pfad 306" class="cls-1" d="M343.044-130.929a3.086,3.086,0,0,0,1.727.849c1.124,0,1.59-.328,2.22-1.919l.521-1.343-6.332-13.295h3.646l4.386,9.512,3.426-9.512h3.537l-6.306,15.9c-1.124,2.851-2.96,3.728-4.879,3.728a5.755,5.755,0,0,1-3.481-1.37Z" transform="translate(-322.255 154.368)"/>
@@ -35,7 +35,7 @@
             </svg>
         </a>
     </div>
-    <nav class="nav">
+    <nav class="nav"> 
         <?php
             wp_nav_menu( [
               'theme_location' => 'main-menu',
@@ -46,23 +46,23 @@
             ] );
         ?>
     </nav>
+    <button type="button" class="header__hamburger hamburger" id="hamburger" data-toggles-nav="nav" aria-haspopup="true" aria-expanded="false" aria-label="Mobile Navigation">
+        <span class="hamburger__line hamburger__line-1"></span>
+        <span class="hamburger__line hamburger__line-2"></span>
+        <span class="hamburger__line hamburger__line-3"></span>
+    </button>
 </header>
-<nav class="service-nav service-nav--dark">
+<nav class="service-nav">
     <?php wp_nav_menu( array( 
           'theme_location' => 'service-menu',
           'container' => '',
           'menu_id' => '',
           'menu_class' => 'service-nav__list',
     )); ?>
-    <ul class="service-nav__list">
-        <li class="service-nav__item contact">
-            <a href="#"><span>Kontakt</span></a>
-        </li>
-    </ul>
 </nav>
-<div class="circle-link circle-link--dark">
-    <a class="circle-link__a">
-        <span class="circle-link__svg circle-link__svg-dark">
+<div class="circle-link">
+    <a class="circle-link__a" href="<?php echo site_url() . '/buchung'?>">
+        <span class="circle-link__svg">
             <svg class="circle-link__circle" xmlns="http://www.w3.org/2000/svg" width="151.221" height="151.263" viewBox="0 0 151.221 151.263">
                 <g class="Flug-Buchen-Stoerer" transform="translate(-1147.175 -311.237)">
                 <g id="FliegMitMir" transform="translate(916.405 265.271)">

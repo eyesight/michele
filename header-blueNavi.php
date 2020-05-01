@@ -46,6 +46,11 @@
             ] );
         ?>
     </nav>
+    <button type="button" class="header__hamburger hamburger" id="hamburger" data-toggles-nav="nav" aria-haspopup="true" aria-expanded="false" aria-label="Mobile Navigation">
+        <span class="hamburger__line hamburger__line-1"></span>
+        <span class="hamburger__line hamburger__line-2"></span>
+        <span class="hamburger__line hamburger__line-3"></span>
+    </button>
 </header>
 <nav class="service-nav service-nav--dark">
     <?php wp_nav_menu( array( 

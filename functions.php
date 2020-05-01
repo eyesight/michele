@@ -109,17 +109,13 @@ function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $cur
                   $subcat_desc = $subcategory->description;
                   $cat_button = get_field('button-info-page', $subcategory); 
                   $cat_button_link = get_field('btn-link-infopage', $subcategory);
+                  $cat_icon = get_field('icons_for_cat', $subcategory, false);
 
                   ?>
                   <section class="categories" data-sticky-container>
-                      <div id="<?php echo $subcat_slug ?>" class="category-title" data-margin-top="130" data-sticky-class="is-sticky">
+                      <div id="<?php echo $subcat_slug ?>" class="category-title" data-margin-top="130" data-sticky-class="is-sticky" data-sticky-for="769">
                           <div class="category-title__icon">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="50.208" height="50.208" viewBox="0 0 50.208 50.208">
-                                  <g class="icon-sonne" transform="translate(-1 -1)">
-                                      <circle id="Ellipse_14" data-name="Ellipse 14" cx="11" cy="11" r="11" transform="translate(15.104 15.104)" stroke-width="2" stroke="#020440" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                                      <path id="Pfad_238" data-name="Pfad 238" d="M26.1,2V8.428m0,35.353v6.428m24.1-24.1H43.781m-35.353,0H2M9.071,9.071l4.5,4.5M38.638,38.638l4.5,4.5m0-34.067-4.5,4.5M13.57,38.638l-4.5,4.5" fill="none" stroke="#020440" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                  </g>
-                              </svg>                  
+                              <?php echo $cat_icon; ?>                  
                           </div> 
                           <div class="category-title__pretitle"><?php echo $subcat_name ?></div>
                           <h3 class="category-title__title"><?php echo $subcat_desc ?></h3>
@@ -139,7 +135,7 @@ function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $cur
                               'posts_per_page' => -1, // <-- Show all posts
                               'hide_empty'     => true,
                               'meta_key'       => 'ordering',
-	                            'orderby'        => 'meta_value',
+	                          'orderby'        => 'meta_value',
                               'order'          => 'ASC',
                               'tax_query'      => array(
                                   array(
@@ -311,4 +307,17 @@ function ow_categories_and_posts_about_page( $taxonomy, $post_type, $currentCat 
     
     <?php endif;
 }
+
+add_action('admin_head', 'remove_content_editor');
+/**
+ * Remove the content editor from pages as all content is handled through Panels
+ */
+function remove_content_editor()
+{
+    if((int) get_option('page_on_front')==get_the_ID())
+    {
+        remove_post_type_support('page', 'editor');
+    }
+}
 ?>
+

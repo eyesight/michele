@@ -18,7 +18,7 @@ $f2 = get_field("front-blue-box-title");
 		<?php the_post(); ?>
 		<?php get_template_part( 'template-parts/content/content-hero' ); ?>
         <section class="layout-centered">
-            <div class="title-h2"><?php the_field('front-blue-box-subtitle'); ?>
+            <div class="title-h2">
                 <p class="title-h2__preline">Gleitschirm Tandemflüge</p>
                 <h2 class="title-h2__title">Entdecke mein Flugangebot.</h2>
             </div>

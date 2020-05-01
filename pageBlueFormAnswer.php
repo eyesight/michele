@@ -16,7 +16,6 @@
 			<div class="layout-content-width__links">
 				<?php $link1 = get_field('link1'); ?>
 				<?php $link2 = get_field('link2'); ?>
-				
 				<?php if($link1) : ?>
 				<a href="<?php echo array_values($link1)[1] ?>" class="arrow-link layout-content-width__link">
 					<span class="arrow-link__button-text"><?php echo array_values($link1)[0] ?></span>
