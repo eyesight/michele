@@ -66,6 +66,7 @@
     <div class="tile tile--without-image">
         <a class="tile__link" href="<?php echo get_category_link(get_field('category-with-icon'));?>">
             <div class="tile__text-wrapper">
+                <p class="tile__preline"><?php echo get_cat_name(get_field('category-with-icon'));?></p>
                 <h3 class="tile__title"><?php the_field('tile-icon-text');?></h3>
             </div>
             <button class="tile__button">
