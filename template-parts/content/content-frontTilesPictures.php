@@ -36,7 +36,7 @@
                 <h3 class="tile__title"><?php the_field('tile-large-front-text');?> </h3>
             </div>
             <button class="tile__button">
-                <span class="tile__button-text"><?php the_field('button-text-with-arrow');?></span><span class="tile__button-arrow"></span>
+                <span class="tile__button-text"><?php the_field('tile-large-front-button-text-with-arrow');?></span><span class="tile__button-arrow"></span>
             </button>
         </a>
     </div>
@@ -70,7 +70,7 @@
                 <h3 class="tile__title"><?php the_field('tile-icon-text');?></h3>
             </div>
             <button class="tile__button">
-                <span class="tile__button-text"><?php the_field('button-text-with-arrow');?></span><span class="tile__button-arrow"></span>
+                <span class="tile__button-text"><?php the_field('tile-icon-button-text-with-arrow');?></span><span class="tile__button-arrow"></span>
             </button>
         </a>
     </div>

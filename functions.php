@@ -17,7 +17,7 @@ function flyra_files() {
 add_action('wp_enqueue_scripts', 'flyra_files');  
 
 //get acf-stuff
-//require_once 'inc/acf.php';
+require get_template_directory() . '/inc/acf-fields.php';
 
 function flyra_features() {
   register_nav_menu('main-menu', 'Main Menu Header');
@@ -284,7 +284,8 @@ function ow_categories_and_posts_about_page( $taxonomy, $post_type, $currentCat 
         array('post_type'=>'post', 
               'post_status'=>'publish', 
               'posts_per_page'=>-1,
-              'orderby'=> 'title',
+              'meta_key' => 'order-about',
+              'orderby'=> 'meta_value',
               'order' => 'ASC',
               'cat' => $currentCat->cat_ID
         )); ?>
