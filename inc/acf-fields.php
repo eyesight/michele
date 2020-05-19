@@ -80,6 +80,51 @@ if( function_exists('acf_add_local_field_group') ):
     ));
     
     acf_add_local_field_group(array(
+        'key' => 'group_5ebe842e8ea7c',
+        'title' => 'about order',
+        'fields' => array(
+            array(
+                'key' => 'field_5ebe844c0b4df',
+                'label' => 'Reihenfolge von about page',
+                'name' => 'order-about',
+                'type' => 'number',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'min' => '',
+                'max' => '',
+                'step' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_category',
+                    'operator' => '==',
+                    'value' => 'category:about',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ));
+    
+    acf_add_local_field_group(array(
         'key' => 'group_5e9daaf401258',
         'title' => 'Bestaetigungsseite',
         'fields' => array(
@@ -221,7 +266,7 @@ if( function_exists('acf_add_local_field_group') ):
                 'label' => 'Button Text mit Pfeil',
                 'name' => 'button-text-with-arrow',
                 'type' => 'text',
-                'instructions' => '',
+                'instructions' => 'Text gilt für alle Flugangebots-Kacheln',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -317,6 +362,25 @@ if( function_exists('acf_add_local_field_group') ):
                 'maxlength' => '',
             ),
             array(
+                'key' => 'field_5ebda4a17db7b',
+                'label' => 'Grosse Kachel Flugangebot Button Text mit Pfeil',
+                'name' => 'tile-large-front-button-text-with-arrow',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => 'Flüge ansehen',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+            array(
                 'key' => 'field_5e9600cb1902a',
                 'label' => 'Grosse Kachel Flugangebot Link',
                 'name' => 'tile-large-front-link',
@@ -368,6 +432,25 @@ if( function_exists('acf_add_local_field_group') ):
                 ),
                 'default_value' => '',
                 'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+            array(
+                'key' => 'field_5ebda62122231',
+                'label' => 'Kachel Streckenflugtraining Button Text',
+                'name' => 'tile-icon-button-text-with-arrow',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => 'Flüge ansehen',
                 'prepend' => '',
                 'append' => '',
                 'maxlength' => '',
@@ -1060,18 +1143,17 @@ if( function_exists('acf_add_local_field_group') ):
                     'https://goo.gl/maps/uQLwnh1XvYqzcZtr5' => 'Luegibrüggli',
                     'https://goo.gl/maps/UHS3HtNDvidwzKeE7' => 'Kiental',
                     'https://goo.gl/maps/oGokd8swxQvo3Eh39' => 'Weissenstein',
-                    'www.test.ch' => 'Vom Niederhorn nach Brienz',
+                    'www.test.ch' => 'sdfsdf',
+                    'www.hotmail.com' => 'blabla',
+                    'www.xp.ch : asdfasdf' => 'www.xp.ch : asdfasdf',
                 ),
                 'allow_custom' => 1,
                 'save_custom' => 1,
                 'default_value' => array(
                 ),
                 'layout' => 'vertical',
-                'toggle' => 0,
+                'toggle' => 1,
                 'return_format' => 'array',
-                'places' => array(
-                    '' => '',
-                ),
             ),
             array(
                 'key' => 'field_5e8e325cb7b94',

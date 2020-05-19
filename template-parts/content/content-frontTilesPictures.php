@@ -15,7 +15,7 @@
                 <h3 class="tile__title"><?php the_field('front-text-flights', $sc) ?></h3>
             </div>
             <button class="tile__button">
-                <span class="tile__button-text">Flüge ansehen</span><span class="tile__button-arrow"></span>
+                <span class="tile__button-text"><?php the_field('button-text-with-arrow') ?></span><span class="tile__button-arrow"></span>
             </button>
         </a>
     </div>

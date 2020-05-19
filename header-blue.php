@@ -6,7 +6,7 @@
     <?php wp_head(); ?>
   </head>
   <body  <?php body_class('blue'); ?>>
-  <header class="header">
+  <header class="header header--close-button">
     <button class="close-button">
         <a class="close-button__link" onclick="history.back();">
             <span class="close-button__line close-button__line--1"></span>
@@ -14,19 +14,6 @@
         </a>
     </button>
 </header>
-<nav class="service-nav service-nav--dark">
-    <?php wp_nav_menu( array( 
-          'theme_location' => 'service-menu',
-          'container' => '',
-          'menu_id' => '',
-          'menu_class' => 'service-nav__list',
-    )); ?>
-    <ul class="service-nav__list">
-        <li class="service-nav__item contact">
-            <a href="#"><span>Kontakt</span></a>
-        </li>
-    </ul>
-</nav>
 <div class="circle-link circle-link--dark">
     <a class="circle-link__a">
         <span class="circle-link__svg circle-link__svg-dark">
