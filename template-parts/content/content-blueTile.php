@@ -1,4 +1,4 @@
-<div class="tile-blue-wrapper" id="blue-box">
+<div class="tile-blue-wrapper">
     <div class="tile-blue">
         <div class="tile-blue__icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="56.862" height="56.972" viewBox="0 0 56.862 56.972">

@@ -90,4 +90,7 @@ if($current_category->slug === 'information') { ?>
     <?php
     ow_categories_with_subcategories_and_posts( 'category', 'post', $current_category );
 }?>
+
+<?php if($current_category->slug !== 'information-blue') { ?>
 <?php get_footer(); ?> 
+<?php } ?> 
