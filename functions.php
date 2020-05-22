@@ -17,7 +17,7 @@ function flyra_files() {
 add_action('wp_enqueue_scripts', 'flyra_files');  
 
 //get acf-stuff
-require get_template_directory() . '/inc/acf-fields.php';
+//require get_template_directory() . '/inc/acf-fields.php';
 
 function flyra_features() {
   register_nav_menu('main-menu', 'Main Menu Header');
@@ -113,7 +113,7 @@ function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $cur
 
                   ?>
                   <section class="categories" data-sticky-container>
-                      <div id="<?php echo $subcat_slug ?>" class="category-title" data-margin-top="130" data-sticky-class="is-sticky" data-sticky-for="769">
+                      <div id="<?php echo $subcat_slug ?>" class="category-title" data-margin-top="130" data-sticky-class="is-sticky" data-sticky-for="992">
                           <div class="category-title__icon">
                               <?php echo $cat_icon; ?>                  
                           </div> 
