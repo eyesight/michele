@@ -1,0 +1,1361 @@
+
+[
+    {
+        "key": "group_5e9315dbb2045",
+        "title": "about",
+        "fields": [
+            {
+                "key": "field_5e9315dfcd990",
+                "label": "Titel",
+                "name": "title",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "Grund nr. x",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e931670d8026",
+                "label": "Link",
+                "name": "link",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5e931681d8027",
+                "label": "Link-Text",
+                "name": "link-text",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_category",
+                    "operator": "==",
+                    "value": "category:about"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_5ebe842e8ea7c",
+        "title": "about order",
+        "fields": [
+            {
+                "key": "field_5ebe844c0b4df",
+                "label": "Reihenfolge von about page",
+                "name": "order-about",
+                "type": "number",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_category",
+                    "operator": "==",
+                    "value": "category:about"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_5e9daaf401258",
+        "title": "Bestaetigungsseite",
+        "fields": [
+            {
+                "key": "field_5e9dab0004d03",
+                "label": "Spitztitel",
+                "name": "subtitle",
+                "type": "text",
+                "instructions": "small Title before main",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e9dab521472b",
+                "label": "icon",
+                "name": "icon",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "text",
+                "media_upload": 0,
+                "toolbar": "full",
+                "delay": 0
+            },
+            {
+                "key": "field_5e9dab7d1472c",
+                "label": "link1",
+                "name": "link1",
+                "type": "link",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array"
+            },
+            {
+                "key": "field_5e9dacfdd972f",
+                "label": "link2",
+                "name": "link2",
+                "type": "link",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "pageBlueFormAnswer.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_5e94dcaa81b02",
+        "title": "Frontpage",
+        "fields": [
+            {
+                "key": "field_5e94871b298a6",
+                "label": "Button Text auf Startseitenbild",
+                "name": "button-text-front",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Finde dein Abenteuer",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5ec912791f5d8",
+                "label": "Spitztitel Flugangebot",
+                "name": "subtitle-tandemflights",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5ec912c61f5d9",
+                "label": "Titel Flugangebot",
+                "name": "titel-tandemflights",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e94dd62e4436",
+                "label": "Kategorie für Kacheln Angebot (nur Hauptkategorie auswählen)",
+                "name": "category-offer",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "category",
+                "field_type": "radio",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "id",
+                "multiple": 0
+            },
+            {
+                "key": "field_5e96150b57f0e",
+                "label": "Button Text mit Pfeil",
+                "name": "button-text-with-arrow",
+                "type": "text",
+                "instructions": "Text gilt für alle Flugangebots-Kacheln",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e94e24e0f1dd",
+                "label": "Grosse Kachel Flugangebot Bild",
+                "name": "tile-large-front-image",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "large",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_5eac76e73ceba",
+                "label": "Grosse Kachel Icon",
+                "name": "tile-large-icon",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "text",
+                "media_upload": 0,
+                "toolbar": "full",
+                "delay": 0
+            },
+            {
+                "key": "field_5e94dcb2c53b3",
+                "label": "Grosse Kachel Flugangebot kleiner Text",
+                "name": "tile-large-front",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e94dd3be4435",
+                "label": "Grosse Kachel Flugangebot Text",
+                "name": "tile-large-front-text",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5ebda4a17db7b",
+                "label": "Grosse Kachel Flugangebot Button Text mit Pfeil",
+                "name": "tile-large-front-button-text-with-arrow",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "Flüge ansehen",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e9600cb1902a",
+                "label": "Grosse Kachel Flugangebot Link",
+                "name": "tile-large-front-link",
+                "type": "link",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url"
+            },
+            {
+                "key": "field_5e94dde7fb3dd",
+                "label": "Kategorie Kachel Streckenflugtraining (nur Hauptkategorie auswählen)",
+                "name": "category-with-icon",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "category",
+                "field_type": "radio",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "id",
+                "multiple": 0
+            },
+            {
+                "key": "field_5e94de54a793d",
+                "label": "Kachel Streckenflugtraining Text",
+                "name": "tile-icon-text",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5ebda62122231",
+                "label": "Kachel Streckenflugtraining Button Text",
+                "name": "tile-icon-button-text-with-arrow",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "Flüge ansehen",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e961407a58b7",
+                "label": "Titel zu Liste Gründe fürs Fliegen",
+                "name": "list-reasons-title",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "Gleitschirmfliegen ...",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e94defaa793e",
+                "label": "Liste Gründe fürs Fliegen",
+                "name": "list-reasons",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5ec9147d2de33",
+                "label": "Link-Text zu Gründe fürs Fliegen",
+                "name": "list-reasons-link-text",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e9614bfe1563",
+                "label": "Link zu Gründe fürs Fliegen",
+                "name": "list-reasons-link",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "category",
+                "field_type": "checkbox",
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "id",
+                "multiple": 0,
+                "allow_null": 0
+            },
+            {
+                "key": "field_5e94df66a793f",
+                "label": "Kategorie Wissenswertes (nur eines Auswählen)",
+                "name": "category-information-front",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "category",
+                "field_type": "radio",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "id",
+                "multiple": 0
+            },
+            {
+                "key": "field_5e94dfd427589",
+                "label": "Blaue Box Spitztitel",
+                "name": "front-blue-box-subtitle",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "Kontakt",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e94dffa2758a",
+                "label": "Blaue Box Titel",
+                "name": "front-blue-box-title",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5ec914b22de34",
+                "label": "",
+                "name": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_type",
+                    "operator": "==",
+                    "value": "front_page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_5e90f57c74aca",
+        "title": "Kategorie-Ergänzung",
+        "fields": [
+            {
+                "key": "field_5e94c40bff261",
+                "label": "Ist Hauptmenupunkt von Flug-Seiten",
+                "name": "is-parent",
+                "type": "checkbox",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "ist Hauptkategorie": "is_parent"
+                },
+                "allow_custom": 0,
+                "default_value": [],
+                "layout": "vertical",
+                "toggle": 0,
+                "return_format": "array",
+                "save_custom": 0
+            },
+            {
+                "key": "field_5e94b83223351",
+                "label": "Ist Unterpunkt von Flug-Seiten",
+                "name": "is-subcat",
+                "type": "checkbox",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "ist Unterkategorie": "is_subcat"
+                },
+                "allow_custom": 0,
+                "default_value": [],
+                "layout": "vertical",
+                "toggle": 0,
+                "return_format": "array",
+                "save_custom": 0
+            },
+            {
+                "key": "field_5e94b93f697e0",
+                "label": "Ist About Me Seite",
+                "name": "is_about_page",
+                "type": "checkbox",
+                "instructions": "bitte Ankreuzen, wenn es die Über mich \/ About me Seite ist. Schaltet dafür nötige Felder Frei",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "ist Über-mich": "is_about"
+                },
+                "allow_custom": 0,
+                "default_value": [],
+                "layout": "vertical",
+                "toggle": 0,
+                "return_format": "array",
+                "save_custom": 0
+            },
+            {
+                "key": "field_5eac40e627f48",
+                "label": "Icons für Tandemkategorien",
+                "name": "icons_for_cat",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e94b83223351",
+                            "operator": "==",
+                            "value": "ist Unterkategorie"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "text",
+                "media_upload": 0,
+                "toolbar": "full",
+                "delay": 0
+            },
+            {
+                "key": "field_5e91cdba50277",
+                "label": "Text Button auf Bild",
+                "name": "button-text-on-front",
+                "type": "text",
+                "instructions": "Der Text zum Link auf dem Bild mit Pfeil nach unten. Nur nötig auf parent-category (oberste Kategorie)",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e94c40bff261",
+                            "operator": "==",
+                            "value": "ist Hauptkategorie"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "button-text",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e923fd47b03b",
+                "label": "Button zu Info-Seite",
+                "name": "button-info-page",
+                "type": "text",
+                "instructions": "Text von Button zu Info-Seite - nur auf child-categories von Flug-Angebotsseiten angezeigt\/nötig",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e94b83223351",
+                            "operator": "==",
+                            "value": "ist Unterkategorie"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Ablauf und Häufige  Fragen beantwortet",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e92404048f06",
+                "label": "Button-Link zu Info-Seite",
+                "name": "btn-link-infopage",
+                "type": "url",
+                "instructions": "Link zur info Seite des Buttons - nur auf child-categories von Flug-Angebotsseiten angezeigt\/nötig",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e923fd47b03b",
+                            "operator": "!=empty"
+                        },
+                        {
+                            "field": "field_5e94b83223351",
+                            "operator": "==",
+                            "value": "ist Unterkategorie"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5e90f58eede7e",
+                "label": "Box Subtitle",
+                "name": "box-tandem-subtitle",
+                "type": "text",
+                "instructions": "Spitztitel in blauer Box",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e94c40bff261",
+                            "operator": "==",
+                            "value": "ist Hauptkategorie"
+                        }
+                    ],
+                    [
+                        {
+                            "field": "field_5e94b93f697e0",
+                            "operator": "==",
+                            "value": "ist Über-mich"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "Subtext",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e90f69dede7f",
+                "label": "Box Title",
+                "name": "box-tandem-title",
+                "type": "text",
+                "instructions": "Der grosse Titel in blauer box",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e94c40bff261",
+                            "operator": "==",
+                            "value": "ist Hauptkategorie"
+                        }
+                    ],
+                    [
+                        {
+                            "field": "field_5e94b93f697e0",
+                            "operator": "==",
+                            "value": "ist Über-mich"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "Titel",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e94571115ec7",
+                "label": "Über mich Text in blauer Box",
+                "name": "about-text",
+                "type": "textarea",
+                "instructions": "Text in blauer Box auf über mich Seite - wird nur auf about\/über mich Seite erscheinen",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e94b93f697e0",
+                            "operator": "==",
+                            "value": "ist Über-mich"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": ""
+            },
+            {
+                "key": "field_5e946a33023a2",
+                "label": "Instagram-Feed",
+                "name": "instagram-feed",
+                "type": "wysiwyg",
+                "instructions": "Instagram Feed auf der über-mich Seite",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e94b93f697e0",
+                            "operator": "==",
+                            "value": "ist Über-mich"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "text",
+                "media_upload": 0,
+                "toolbar": "full",
+                "delay": 0
+            },
+            {
+                "key": "field_5e946b1d5c093",
+                "label": "Instagram-Feed-Titel",
+                "name": "instagram-feed-title",
+                "type": "text",
+                "instructions": "Instagram-Titel, ausschliesslich auf über-mich Seite",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e94b93f697e0",
+                            "operator": "==",
+                            "value": "ist Über-mich"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e94b8b57d203",
+                "label": "Frontpage-Text für Flug-Kategorien",
+                "name": "front-text-flights",
+                "type": "text",
+                "instructions": "Der Text erscheint nur auf der Startseite zu den Verlinkungen der Kategorie-Seiten",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e94b83223351",
+                            "operator": "==",
+                            "value": "ist Unterkategorie"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e9330604a8a3",
+                "label": "Reihenfolge",
+                "name": "order-cat",
+                "type": "number",
+                "instructions": "Reihenfolge der einzelnen Kapitel auf Seite",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "taxonomy",
+                    "operator": "==",
+                    "value": "category"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_5e91b7743191d",
+        "title": "Wissenswertes",
+        "fields": [
+            {
+                "key": "field_5e91b77bff344",
+                "label": "icon",
+                "name": "icon",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "text",
+                "media_upload": 0,
+                "toolbar": "full",
+                "delay": 0
+            },
+            {
+                "key": "field_5e932ed8cc7e0",
+                "label": "Reihenfolge",
+                "name": "order-information",
+                "type": "number",
+                "instructions": "Bitte Reihenfolge mit dieser Nummerierung festlegen",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_category",
+                    "operator": "==",
+                    "value": "category:information"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "discussion",
+            "comments"
+        ],
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_5e8e31cd61e58",
+        "title": "Tandemattribute",
+        "fields": [
+            {
+                "key": "field_5e8e35236001a",
+                "label": "Flugzeit",
+                "name": "flighttime",
+                "type": "text",
+                "instructions": "Flugzeit eingeben. Wenn leer wird Icon auch nicht angezeigt.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "flighttime",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "XX Minuten Flugzeit",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e8e35f86001b",
+                "label": "Höhendifferenz",
+                "name": "altitude",
+                "type": "text",
+                "instructions": "Höhendifferenz eingeben. Wenn leer wird Icon auch nicht angezeigt.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "altitude",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "xxx m Höhendifferenz",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e8e36546001c",
+                "label": "Distanz",
+                "name": "distance",
+                "type": "text",
+                "instructions": "Distanz eingeben. Wenn leer wird Icon auch nicht angezeigt.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "Bis zu 25 m Distanz",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e8e36a828dbc",
+                "label": "Fluggebiete",
+                "name": "places",
+                "type": "checkbox",
+                "instructions": "Bitte Google Link kopieren",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "https:\/\/goo.gl\/maps\/a4VGKnVg3mpWBcHAA": "Amisbüehl",
+                    "https:\/\/goo.gl\/maps\/A99UrjTTtSGn39Qr8": "Luegibrüggli",
+                    "https:\/\/goo.gl\/maps\/UHS3HtNDvidwzKeE7": "Kiental",
+                    "https:\/\/goo.gl\/maps\/AP3MVQuYKid8cnwXA": "Von Weissenstein nach Biel",
+                    "https:\/\/goo.gl\/maps\/MgbTwkwRNeSyEKFQ6": "Vom Niederhorn nach Brienz",
+                    "https:\/\/goo.gl\/maps\/admgn1YTJNL4DdTL7": "Von Fiesch zum Grimsel",
+                    "https:\/\/goo.gl\/maps\/ukRB91zjyEQ736fw8": "Männlichen",
+                    "https:\/\/goo.gl\/maps\/YTVYTh5YjqnADGBW8": "Birg",
+                    "https:\/\/goo.gl\/maps\/9J1ozMpDySphokcG8": "Jungfraujoch",
+                    "https:\/\/goo.gl\/maps\/4e8d9f1udBHQrCAv7": "Niesen",
+                    "https:\/\/goo.gl\/maps\/fkKMaw1XqnUg91n28": "Planplatten",
+                    "https:\/\/goo.gl\/maps\/e3WsjSQ7R6QdCL7v5": "Schilthorn",
+                    "https:\/\/goo.gl\/maps\/FQxzyCP8uuLN1daZ8": "Weissenstein",
+                    "https:\/\/goo.gl\/maps\/N5qreWx1TZj14FaG7": "Niederhorn"
+                },
+                "allow_custom": 1,
+                "save_custom": 1,
+                "default_value": false,
+                "layout": "vertical",
+                "toggle": 1,
+                "return_format": "array"
+            },
+            {
+                "key": "field_5e8e325cb7b94",
+                "label": "Preis",
+                "name": "price",
+                "type": "text",
+                "instructions": "Bitte preis, inkl. Währung angeben",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "price",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "CHF 120 .–",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e8e399180087",
+                "label": "Preiszusatz",
+                "name": "preiszusatz",
+                "type": "text",
+                "instructions": "additional Text to price, only add when nessesary",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "(CHF 120.– für jede weitere Flugstunde)",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e932968c8c07",
+                "label": "Reihenfolge",
+                "name": "ordering",
+                "type": "number",
+                "instructions": "Nummer um die Reihenfolge der Posts zu setzen",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                },
+                {
+                    "param": "post_category",
+                    "operator": "==",
+                    "value": "category:classic-tandem"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                },
+                {
+                    "param": "post_category",
+                    "operator": "==",
+                    "value": "category:big-mountains-flight"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                },
+                {
+                    "param": "post_category",
+                    "operator": "==",
+                    "value": "category:romantic-flight"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                },
+                {
+                    "param": "post_category",
+                    "operator": "==",
+                    "value": "category:distance-flights"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                },
+                {
+                    "param": "post_category",
+                    "operator": "==",
+                    "value": "category:distanz-flight-training"
+                }
+            ]
+        ],
+        "menu_order": 1,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Preis inkl. Währung"
+    }
+]

@@ -19,8 +19,8 @@ $f2 = get_field("front-blue-box-title");
 		<?php get_template_part( 'template-parts/content/content-hero' ); ?>
         <section class="layout-centered">
             <div class="title-h2">
-                <p class="title-h2__preline">Gleitschirm Tandemflüge</p>
-                <h2 class="title-h2__title">Entdecke mein Flugangebot.</h2>
+                <p class="title-h2__preline"><?php the_field("subtitle-tandemflights"); ?></p>
+                <h2 class="title-h2__title"><?php the_field("titel-tandemflights"); ?></h2>
             </div>
             <?php set_query_var( 'subcats', $subcats ); ?>
             <?php get_template_part( 'template-parts/content/content-frontTilesPictures' ); ?>
