@@ -74,6 +74,7 @@ $menuR = wp_get_nav_menu_object($locations['footer-right-menu']);//get the menu 
         ?>
     </div> 
 </footer>
+<div class="transition"></div>
 <?php wp_footer(); ?>
 </body>
 </html>

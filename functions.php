@@ -231,12 +231,14 @@ function ow_categories_with_subcategories_and_posts( $taxonomy, $post_type, $cur
                       wp_reset_query();
                   }}?>
        <?php } ?>
-          <section class="layout-bg" id="blue-box">
-              <div class="title-h2">
-                  <p class="title-h2__preline"><?php echo $cat_subtitle_box ?></p>
-                  <h2 class="title-h2__title"><?php echo $cat_title_box ?></h2>
+          <section class="layout-bg">
+              <div class="layout-bg__inner-wrapper" id="blue-box">
+                <div class="title-h2">
+                    <p class="title-h2__preline"><?php echo $cat_subtitle_box ?></p>
+                    <h2 class="title-h2__title"><?php echo $cat_title_box ?></h2>
+                </div>
+                <?php get_template_part( 'template-parts/content/content-blueTile' ); ?>
               </div>
-              <?php get_template_part( 'template-parts/content/content-blueTile' ); ?>
           </section>
       <?php } else { ?>
       <div>there are no categories found</div>
