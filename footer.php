@@ -67,7 +67,7 @@
                 ?>
             </div>
         </div>
-        <?php
+        <?php blabla
           if(is_active_sidebar('footer-link')){
               dynamic_sidebar('footer-link');
           }
