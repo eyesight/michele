@@ -6,6 +6,9 @@
     <?php wp_head(); ?>
   </head>
   <body <?php body_class('blue'); ?>>
+  <div class="wrapper" data-barba="wrapper">
+      <div class="container" data-barba="container">
+      <div class="blue">
     <header class="header">
     <div class="header__logo-container">
         <a href="<?php echo site_url() ?>" class="logo">
@@ -122,11 +125,10 @@
             </svg>
             <svg class="circle-link__text" xmlns="http://www.w3.org/2000/svg" width="151.221" height="151.263" viewBox="0 0 151.221 151.263">
                 <g class="Flug-Buchen-Stoerer" transform="translate(-1147.175 -311.237)">
-                <text class="Flug_buchen" data-name="Flug
-            buchen" class="cls-1" transform="translate(1223.175 382.236)"><tspan x="-15.808" y="0">Flug</tspan><tspan x="-27" y="20">buchen</tspan></text>
+                <text class="Flug_buchen" data-name="Flug buchen" class="cls-1" transform="translate(1223.175 382.236)"><tspan x="-15.808" y="0">Flug</tspan><tspan x="-27" y="20">buchen</tspan></text>
                 </g>
             </svg>         
         </span>       
     </a>
 </div>
-<main class="content">
+<main class="content" >

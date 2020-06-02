@@ -6,6 +6,9 @@
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
+    <div class="wrapper" data-barba="wrapper">
+        <div class="container" data-barba="container">
+            <div>
     <header class="header">
     <div class="header__logo-container">
         <a href="<?php echo site_url() ?>" class="logo">

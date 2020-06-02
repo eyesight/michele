@@ -1,5 +1,5 @@
 <?php /* Template Name: Seite Formular ohne Navigation*/ ?>
-<?php get_header('blue'); ?>
+<?php get_header('blue'); ?> 
 
 <?php if ( have_posts() ) : ?>
 	<?php while ( have_posts() ) : ?>

@@ -1,7 +1,7 @@
 <?php 
-$locations = get_nav_menu_locations(); //get all menu locations
-$menuL = wp_get_nav_menu_object($locations['footer-menu']);//get the menu object
-$menuR = wp_get_nav_menu_object($locations['footer-right-menu']);//get the menu object
+    $locations = get_nav_menu_locations(); //get all menu locations
+    $menuL = wp_get_nav_menu_object($locations['footer-menu']);//get the menu object
+    $menuR = wp_get_nav_menu_object($locations['footer-right-menu']);//get the menu object
 ?>
 </main>
 <footer class="footer">
@@ -74,7 +74,9 @@ $menuR = wp_get_nav_menu_object($locations['footer-right-menu']);//get the menu 
         ?>
     </div> 
 </footer>
-<div class="transition"></div>
+</div>
+</div>
+</div>
 <?php wp_footer(); ?>
 </body>
 </html>
