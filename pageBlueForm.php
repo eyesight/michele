@@ -11,6 +11,7 @@
 			<?php get_template_part( 'template-parts/content/content' ); ?>
 		</div>
 	<?php endwhile; ?>
+	<?php get_footer('blue'); ?> 
 <?php else : ?>
 	<?php get_template_part( 'template-parts/404/content' ); ?>
 <?php endif; ?>

@@ -93,4 +93,6 @@ if($current_category->slug === 'information') { ?>
 
 <?php if($current_category->slug !== 'information-blue') { ?>
 <?php get_footer(); ?> 
-<?php } ?> 
+<?php } else { ?>
+<?php get_footer('blue'); ?>
+<?php }?>

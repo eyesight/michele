@@ -76,6 +76,7 @@
 </footer>
 </div>
 </div>
+<div class="transition"></div>
 </div>
 <?php wp_footer(); ?>
 </body>
