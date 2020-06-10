@@ -16,6 +16,8 @@ function flyra_files() {
 
 add_action('wp_enqueue_scripts', 'flyra_files');  
 
+add_theme_support( 'title-tag' );
+
 //get acf-stuff
 //require get_template_directory() . '/inc/acf-fields.php';
 
