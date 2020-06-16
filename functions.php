@@ -10,6 +10,7 @@ function register_navwalker(){
 add_action( 'after_setup_theme', 'register_navwalker' );
 
 function flyra_files() {
+  wp_enqueue_script('jquery', get_theme_file_uri('dist/js/jquery/jquery.js'), NULL, '1.12.4', true);
   wp_enqueue_script('main-flyra-js', get_theme_file_uri('dist/js/script.min.js'), NULL, '1.0', true);
   wp_enqueue_style( 'flyra_styles', get_template_directory_uri() . '/dist/css/wordpress.css' ); 
 }
