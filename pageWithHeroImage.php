@@ -1,3 +1,5 @@
+<?php /* Template Name: Seite mit grossem Auftakt-Bild (Hero image) */ ?>
+
 <?php get_header(); ?>
 
 <?php if ( have_posts() ) : ?>
