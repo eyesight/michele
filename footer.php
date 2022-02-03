@@ -1,4 +1,4 @@
-<footer class="footer">test
+<footer class="footer">
   <div class="footer__container">
     <div class="footer__left">
       <?php
