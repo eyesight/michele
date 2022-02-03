@@ -13,7 +13,7 @@ add_action('wp_enqueue_scripts', 'mim_files');
 //get acf-stuff
 require_once 'inc/acf.php';
 
-function mim_features() { test
+function mim_features() {
   register_nav_menu('main-menu', 'Main Menu Header');
   register_nav_menu('main-menu-mobile', 'Main Menu Header Mobile');
   register_nav_menu('social-menu', 'Social Media Footer');
