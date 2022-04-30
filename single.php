@@ -13,9 +13,9 @@
 							<?php 
 								for($i=0; $i<20; $i++){
 									$creditvar = 'credits' . $i;
-									$creditName = get_field($creditvar)['name'];
-									$creditJob = get_field($creditvar)['job'];
-									if($creditName){
+									$creditName = get_field($creditvar)['name'] === null ? '' : get_field($creditvar)['name'];
+									$creditJob = get_field($creditvar)['job'] === null ? '' : get_field($creditvar)['job'];
+									if($creditName && $creditName !== ''){
 										echo '<div class="title-lead__credit-item">';
 										echo '<p class="title-lead__text-bold">' .$creditJob. '</p>';
 										echo '<p class="title-lead__text">' .$creditName. '</p>';
@@ -27,8 +27,8 @@
 					</div>
 					<div class="title-lead__copyright-container">
 						<?php 
-							$value = get_field('copyright');
-							if( $value ) {
+							$value = get_field('copyright') === null ? '' : get_field('copyright');
+							if( $value !== '' ) {
 								echo '<p class="title-lead__copyright">©' . 
 								$value
 								. '</p>';
