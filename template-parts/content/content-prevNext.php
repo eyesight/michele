@@ -7,6 +7,8 @@
 
     $idOfFrontpage = (int)get_option( 'page_on_front' );
     $sizeOfArray = sizeof($all_posts->posts)-1;
+    $prevID = 0;
+    $nextID = 0;
 
     foreach($all_posts->posts as $key => $value) {
         if($value->ID == $post->ID){
