@@ -62,36 +62,6 @@ function the_category_valid() {
  }
 
 add_filter( 'allowed_block_types_all', 'mim_allowed_block_types', 10, 2 );
- 
-// function mim_allowed_block_types( $allowed_blocks, $post ) {
-//   // this shows all blocks in console of Editor
-//     // print_r($post->post_type);
-
-// 	$allowed_blocks = array(
-//     'cgb/block-mim-img-txt',  
-//     'cgb/block-mim-img',
-//     'cgb/block-mim-img-up', 
-//     'core/video',
-//     "core-embed/youtube",
-//     "core-embed/vimeo",
-//     "core/image"
-// 	);
-
-// 	if (isset($post) && $post->post_type === 'page') {
-// 		$allowed_blocks[] = 'cgb/block-mim-img-txt';
-// 		$allowed_blocks[] = 'cgb/block-mim-img';
-// 		$allowed_blocks[] = 'cgb/block-mim-img-title';
-// 		$allowed_blocks[] = 'cgb/block-mim-list-container';
-// 		$allowed_blocks[] = 'cgb/block-mim-list-item';
-// 		$allowed_blocks[] = 'cgb/block-mim-list-item-title';
-// 		$allowed_blocks[] = 'cgb/block-mim-list-outer-container';
-// 		$allowed_blocks[] = 'cgb/block-mim-text';
-// 		$allowed_blocks[] = 'cgb/block-mim-title-h3';
-//   } 
-
-// 	return $allowed_blocks;
- 
-// }
 
 function mim_allowed_block_types( $allowed_blocks, $post ) {
   $screen = get_current_screen();
@@ -110,21 +80,20 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
         'cgb/block-mim-list-outer-container',
         'core/video',
         "core-embed/youtube",
-        "core/embed",
         "core/image",
         "core/heading",
         "core/paragraph"
       );
   } elseif ( $screen && $screen->post_type === 'post' ) {
       // Add or remove block types for the 'post' post type.
+
       $allowed_blocks = array(
         'cgb/block-mim-img-txt',  
         'cgb/block-mim-img',
         'cgb/block-mim-img-up', 
         'cgb/block-mim-title-h3',
         'cgb/block-mim-text',
-        'core/video',
-        "core-embed/youtube",
+        'cgb/block-mim-video',
         "core/embed",
         "core/image",
         "core/heading",
@@ -146,5 +115,4 @@ function exclude_category_home( $query ) {
   }
    
   add_filter( 'pre_get_posts', 'exclude_category_home' );
-
 ?>
