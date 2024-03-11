@@ -78,11 +78,10 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
         'cgb/block-mim-list-item',
         'cgb/block-mim-list-item-title',
         'cgb/block-mim-list-outer-container',
-        'core/video',
-        "core-embed/youtube",
-        "core/image",
         "core/heading",
-        "core/paragraph"
+        // 'core/video',
+        // "core/image",
+        // "core/paragraph"
       );
   } elseif ( $screen && $screen->post_type === 'post' ) {
       // Add or remove block types for the 'post' post type.
@@ -95,9 +94,11 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
         'cgb/block-mim-text',
         'cgb/block-mim-video',
         "core/embed",
-        "core/image",
+        'cgb/block-mim-image-container',
+        'cgb/block-mim-img-sizes',
         "core/heading",
-        "core/paragraph"
+        // "core/image",
+        // "core/paragraph"
       );
   }
 
