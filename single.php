@@ -17,7 +17,7 @@
 									$creditJob = get_field($creditvar)['job'] === null ? '' : get_field($creditvar)['job'];
 									if($creditName && $creditName !== ''){
 										echo '<div class="title-lead__credit-item">';
-										echo '<p class="title-lead__text-bold">' .$creditJob. '</p>';
+										echo '<p class="title-lead__text">' .$creditJob. '</p>';
 										echo '<p class="title-lead__text">' .$creditName. '</p>';
 										echo '</div>';
 									}

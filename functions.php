@@ -1,4 +1,5 @@
 <?php
+
 function mim_files() {
   wp_enqueue_script('main-mim-js', get_theme_file_uri('dist/js/script.min.js'), NULL, '1.0', true);
   wp_enqueue_style( 'mim_styles', get_template_directory_uri() . '/dist/css/wordpress.css' ); 
@@ -13,6 +14,7 @@ add_action('wp_enqueue_scripts', 'mim_files');
 //get acf-stuff
 require_once 'inc/acf.php';
 
+// Register theme features
 function mim_features() {
   register_nav_menu('main-menu', 'Main Menu Header');
   register_nav_menu('main-menu-mobile', 'Main Menu Header Mobile');
@@ -21,33 +23,31 @@ function mim_features() {
   register_sidebar( array(
     'name' => 'Footer Adress',
     'id' => 'footer-adress',
-    'description' => 'Adress in the footer area',
+    'description' => 'Address in the footer area',
     'before_widget' => '<div class="footer__text">',
     'after_widget' => '</div>',
     'before_title' => '<h3 class="footer__title">',
     'after_title' => '</h3>',
+    'show_in_rest' => false
     ) );
 
     register_sidebar( array(
-      'name' => 'Text on Frontpage',
-      'id' => 'pretitle-front',
-      'description' => 'Text on Frontpage',
-      'before_widget' => '<div class="pre-title">',
+      'name' => 'Footer Adress 2',
+      'id' => 'footer-adress2',
+      'description' => 'Address in the footer area',
+      'before_widget' => '<div class="footer__text">',
       'after_widget' => '</div>',
-      ) );
-
-    register_sidebar( array(
-      'name' => 'Text in header',
-      'id' => 'headertext',
-      'description' => 'Text in header, running from left to right',
-      'before_widget' => '<div class="animated-text__item">',
-      'after_widget' => '</div>',
+      'before_title' => '<h3 class="footer__title">',
+      'after_title' => '</h3>',
+      'show_in_rest' => false
       ) );
     add_theme_support('post-thumbnails');
 }
 
+// Hook the mim_features function to the 'after_setup_theme' action
 add_action('after_setup_theme', 'mim_features');
 
+// Function to display categories of the post
 function the_category_valid() {
   $categories = get_the_category();
      $separator = ',';
@@ -61,8 +61,10 @@ function the_category_valid() {
      }
  }
 
+// Filter to control the block types allowed in Gutenberg editor
 add_filter( 'allowed_block_types_all', 'mim_allowed_block_types', 10, 2 );
 
+// Function to specify allowed block types based on post type
 function mim_allowed_block_types( $allowed_blocks, $post ) {
   $screen = get_current_screen();
 
@@ -107,7 +109,7 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
 }
 
 
-//exclude a category on frontpage
+// Exclude a category on the front page
 function exclude_category_home( $query ) {
   if ( $query->is_home ) {
     $query->set( 'cat', '-600' );
@@ -115,5 +117,12 @@ function exclude_category_home( $query ) {
     return $query;
   }
    
-  add_filter( 'pre_get_posts', 'exclude_category_home' );
+add_filter( 'pre_get_posts', 'exclude_category_home' );
+
+// deactivate new block editor
+function mim_theme_support() {
+  remove_theme_support( 'widgets-block-editor' );
+}
+add_action( 'after_setup_theme', 'mim_theme_support' );
+
 ?>
