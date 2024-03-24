@@ -22,7 +22,11 @@
                     }?>" data-category="<?php foreach((get_the_category()) as $category){
                         echo $category->slug." ";
                     }?>" data-id="<?php the_id() ?>" 
-                >
+                >   <div class="tiles__cats-wrapper">
+                        <?php foreach((get_the_category()) as $category){
+                            echo "<p class='tiles__cat-text'>".$category->name."</p>";
+                        }?>
+                    </div>
                     <a class="tiles__item-link" href="<?php the_permalink(); ?>">
                         <div class="tiles__img-wrapper">
                             <img src="<?php the_post_thumbnail_url( 'category-thumb' );?>">

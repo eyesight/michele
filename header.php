@@ -24,11 +24,11 @@
     $body_text_color = get_field('text-color');
 
     // Output the value inside the body element
-    if (!empty($body_background_color)) {
+    if (!empty($body_background_color) && !is_front_page()) {
         echo '--mim-background-color:' . esc_attr($body_background_color) . ';';
     }
 
-    if (!empty($body_text_color)) {
+    if (!empty($body_text_color) && !is_front_page()) {
       echo '--mim-text-color:' . esc_attr($body_text_color) . ';';
     }
   ?>">
