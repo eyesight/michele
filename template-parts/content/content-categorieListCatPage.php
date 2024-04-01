@@ -1,9 +1,4 @@
 <div class="grid-container filter">
-    <div class="logo-content">
-        <a href="<?php echo site_url() ?>"class="logo-content__link">
-        <img class="logo-content__img" src="<?php echo get_template_directory_uri(); ?>/dist/svg/mi_Logo_RGB.min.svg"/>
-        </a>
-    </div>
     <div class="filter__wrapper">
         <?php
         $taxonomy = array();
