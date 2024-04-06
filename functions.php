@@ -110,13 +110,19 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
 
 
 // Exclude a category on the front page
+// not used yet
 function exclude_category_home( $query ) {
   if ( $query->is_home ) {
-    $query->set( 'cat', '-600' );
+      $excluded_category_name = 'notShowingOnFront'; // Change 'category_name_to_exclude' to the name of the category you want to exclude
+      $excluded_category = get_category_by_slug( $excluded_category_name );
+      
+      if ( $excluded_category ) {
+          $query->set( 'category__not_in', array( $excluded_category->term_id ) );
+      }
   }
-    return $query;
-  }
-   
+  return $query;
+}
+
 add_filter( 'pre_get_posts', 'exclude_category_home' );
 
 // deactivate new block editor
