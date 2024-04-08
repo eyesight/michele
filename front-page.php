@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-    <div class="content">
+    <main class="content">
         <?php get_template_part( 'template-parts/content/content-categorieList' ); ?>
         <div class="grid-container-space-between tiles">
         <?php 
@@ -57,5 +57,5 @@
         <?php else : ?>
             <p><?php _e( 'Sorry, no posts' ); ?></p>
         <?php endif; ?>
-    </div>
+    </main>
 <?php get_footer(); ?> 

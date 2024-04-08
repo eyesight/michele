@@ -33,7 +33,7 @@
 <?php if ( have_posts() ) : ?>
 	<?php while ( have_posts() ) : ?>
 		<?php the_post(); ?>
-		<div class="content title-image">
+		<main class="content title-image">
 			<div class="grid-container title-image__container">
 				<h1 class="visually-hidden"><?php echo $active_menu_title ?></h1>
 				<div class="title-image__image">
@@ -49,7 +49,7 @@
 					<?php get_template_part( 'template-parts/content/content' ); ?>
 				</div>
 			</div>
-		</div>
+		</main>
 	<?php endwhile; ?>
 <?php else : ?>
 	<?php get_template_part( 'template-parts/404/content' ); ?>

@@ -1,6 +1,6 @@
 <?php /* Template Name: Seite mit Einzug links (impressum) */ ?>
 <?php get_header(); ?>
-<div class="content-left-indent">
+<main class="content-left-indent">
 <?php if ( have_posts() ) : ?>
 	<?php while ( have_posts() ) : ?>
 		<?php the_post(); ?>
@@ -14,5 +14,5 @@
 <?php else : ?>
 	<?php get_template_part( 'template-parts/404/content' ); ?>
 <?php endif; ?>
-</div>
+</main>
 <?php get_footer(); ?>
