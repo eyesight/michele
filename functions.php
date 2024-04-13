@@ -126,9 +126,28 @@ function exclude_category_home( $query ) {
 add_filter( 'pre_get_posts', 'exclude_category_home' );
 
 // deactivate new block editor
-function mim_theme_support() {
-  remove_theme_support( 'widgets-block-editor' );
+// function mim_theme_support() {
+//   remove_theme_support( 'widgets-block-editor' );
+// }
+// add_action( 'after_setup_theme', 'mim_theme_support' );
+
+
+function create_category_on_theme_activation() {
+  // Check if the category already exists
+  $category = get_term_by('slug', 'your-theme-category-slug', 'category');
+
+  // If the category doesn't exist, create it
+  if (!$category) {
+      $category_id = wp_insert_term(
+          'Part of the team',
+          'category',
+          array(
+              'description' => 'Wird auf Startseite nur bei aktivem Filter angezeigt.',
+              'slug' => 'part-of-the-team',
+          )
+      );
+  }
 }
-add_action( 'after_setup_theme', 'mim_theme_support' );
+add_action('init', 'create_category_on_theme_activation');
 
 ?>
