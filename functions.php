@@ -126,10 +126,10 @@ function exclude_category_home( $query ) {
 add_filter( 'pre_get_posts', 'exclude_category_home' );
 
 // deactivate new block editor
-// function mim_theme_support() {
-//   remove_theme_support( 'widgets-block-editor' );
-// }
-// add_action( 'after_setup_theme', 'mim_theme_support' );
+function mim_theme_support() {
+  remove_theme_support( 'widgets-block-editor' );
+}
+add_action( 'after_setup_theme', 'mim_theme_support' );
 
 
 function create_category_on_theme_activation() {
