@@ -1,6 +1,7 @@
 <?php get_header(); ?>
     <main class="content">
-    <?php get_template_part( 'template-parts/content/content-categorieListCatPage' ); ?>
+        <h1 class="visually-hidden"><?php the_title() ?></h1>
+        <?php get_template_part( 'template-parts/content/content-categorieListCatPage' ); ?>
         <div class="grid-container-space-between tiles">
         <?php 
         // the query
@@ -38,16 +39,16 @@
                         <div class="tiles__img-wrapper">
                             <img src="<?php the_post_thumbnail_url( 'category-thumb' );?>">
                         </div>
-                        <div class="tiles__text-wrapper">
-                            <div class="tiles__item-title">
+                        <article class="tiles__text-wrapper">
+                            <h2 class="tiles__item-title">
                                 <?php the_title() ?>
-                            </div>
+                            </h2>
                             <div class="tiles__item-copyright">
                                 <?php if(get_field('copyright') !== '') : ?>
                                     Entstanden bei <?php echo get_field('copyright'); ?>
                                 <?php endif; ?>
                             </div>
-                        </div>
+                        </article>
                     </a>
                 </div>
             <?php endwhile; ?>
