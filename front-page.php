@@ -1,7 +1,7 @@
 <?php get_header(); ?>
     <main class="content">
         <h1 class="visually-hidden"><?php the_title() ?></h1>
-        <?php get_template_part( 'template-parts/content/content-categorieList' ); ?>
+        
         <div class="grid-container-space-between tiles">
         <?php 
         // the query

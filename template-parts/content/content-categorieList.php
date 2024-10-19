@@ -1,30 +1,61 @@
-<div class="grid-container filter">
+<?php
+// Check if the function already exists before declaring it
+if (!function_exists('render_category_filter_button')) {
+    // Function to output category filter button
+    function render_category_filter_button($term) {
+        // Start the common HTML structure
+        $button_content = $term->name;
+
+        // Check if the current page is NOT the homepage
+        if (!is_front_page()) {
+            // Generate a link to the homepage with the category slug as the hash
+            $link = home_url() . '/#' . $term->slug;
+
+            // Output the <a> tag styled as a button for non-homepage
+            echo "<div class='filter__button-wrapper'>
+                    <a href='$link' class='filter__button' data-filter-target='" . $term->slug . "'>
+                        $button_content
+                    </a>
+                  </div>";
+        } else {
+            // Output the <button> for the homepage
+            echo "<div class='filter__button-wrapper'>
+                    <button class='filter__button' data-filter-target='" . $term->slug . "'>
+                        $button_content
+                    </button>
+                  </div>";
+        }
+    }
+}
+?>
+
+<!-- The combined filter list with navigation menu -->
+<div class="filter">
     <div class="filter__wrapper">
         <?php
-        $taxonomy = array();
-        $terms = get_terms( $taxonomy );
-        $count = count($terms);
-        if ( $count > 0 ){
-            foreach ( $terms as $term ) {
-                if($term->taxonomy === 'category'){
-                    echo "<div class='filter__button-wrapper'><button class='filter__button' data-filter-target='".$term->slug."'><?xml version='1.0' encoding='utf-8'?>
-                
-                    <div class='filter__arrow'>
-                        <svg xmlns='http://www.w3.org/2000/svg' width='12.5' height='12.5' viewBox='0 0 12.5 12.5'>
-                        <path class='st0' id='Shape' d='M0,0H12V12' transform='translate(0 0.5)' fill='none' stroke='#fff' stroke-miterlimit='10' stroke-width='1'/>
-                        </svg>
+        // Render the navigation menu before the filter buttons using the custom walker
+        wp_nav_menu( array( 
+          'theme_location' => 'main-menu',
+          'container'       => '', // No container for the menu
+          'items_wrap'      => '%3$s', // Avoid wrapping in <ul> tags
+          'walker'          => new Custom_Walker_Nav_Menu(), // Use the custom walker
+          'menu_class'      => 'header__navigation filter__menu' // Added class for styling consistency
+        ));
 
-                        <svg xmlns='http://www.w3.org/2000/svg' width='15.707' height='15.707' viewBox='0 0 15.707 15.707'>
-                        <path class='st0' id='Shape' d='M15,0,0,15' transform='translate(0.354 0.354)' fill='none' stroke='#fff' stroke-miterlimit='10' stroke-width='1'/>
-                        </svg>
-                    </div>
-                    <svg class='filter__x' data-name='x' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26.22 26.22'>
-                    <title>x</title>
-                    <line class='filter__xline' x1='0.07' y1='0.07' x2='26.15' y2='26.15' style='fill: none;stroke: #0013ff;stroke-miterlimit: 10;stroke-width: 1px'/>
-                    <line class='filter__xline' x1='0.07' y1='26.15' x2='26.15' y2='0.07' style='fill: none;stroke: #0013ff;stroke-miterlimit: 10;stroke-width: 1px'/>
-                  </svg>". $term->name . "</button></div>";
+        // Now render the category filter buttons
+        $taxonomy = array(); // Set this to the desired taxonomy, e.g., 'category'
+        $terms = get_terms($taxonomy);
+        $count = count($terms);
+
+        if ($count > 0) {
+            foreach ($terms as $term) {
+                if ($term->taxonomy === 'category') {
+                    // Call the reusable function for each term
+                    render_category_filter_button($term);
                 }
             }
-        }?>
+        }
+        ?>
     </div>
+    <button class="filter__burger js-burger"><span class="line"></span><span class="line"></span><span class="line"></span></button>
 </div>

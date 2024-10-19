@@ -55,7 +55,7 @@ function the_category_valid() {
      if($categories){
        foreach($categories as $category) {
          $category_link = get_category_link($category->cat_ID);
-         $output .= '<p class="title-lead__categories"><a href=" '.$category_link.'" >'.$category->cat_name.'</a></p>,';
+         $output .= '<div data-filter-target="'.$category->slug.'" class="title-lead__categories"><a href=" '.$category_link.'" >'.$category->cat_name.'</a></div>,';
        }
        echo trim($output, $separator);
      }
@@ -150,4 +150,33 @@ function create_category_on_theme_activation() {
 }
 add_action('init', 'create_category_on_theme_activation');
 
+
+
+class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+    // Start level function (do nothing here, no ul/ol tags)
+    function start_lvl( &$output, $depth = 0, $args = null ) {}
+
+    // End level function (do nothing here, no closing ul/ol tags)
+    function end_lvl( &$output, $depth = 0, $args = null ) {}
+
+    // Start each element
+    function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+        // Get the title and URL for the navigation item
+        $title = $item->title;
+        $url = $item->url;
+        
+        // Generate the button content similar to the filter buttons
+        $button_content = $title;
+
+        // Wrap the navigation item like a filter button
+        $output .= "<div class='filter__button-wrapper'>
+                        <a href='" . esc_url($url) . "' class='filter__button'>
+                            $button_content
+                        </a>
+                    </div>";
+    }
+
+    // End each element (no closing tag needed for items)
+    function end_el( &$output, $item, $depth = 0, $args = null ) {}
+}
 ?>
