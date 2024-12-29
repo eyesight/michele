@@ -26,7 +26,8 @@
         }
     }
     ?>
-<div class="content prev-next">
+<div class="prev-next">
+    <div class="content prev-next__wrapper">
     <?php if($prevID === -1): ?>
         <div class="prev-next__arrow prev-next__left">
             <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
@@ -84,4 +85,5 @@
             </svg>
         </div>
     <?php endif; ?>
+    </div>
 </div>  

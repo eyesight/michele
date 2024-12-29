@@ -28,7 +28,7 @@ if (!function_exists('render_category_filter_button')) {
     }
 }
 ?>
-
+<button class="header__burger js-burger"><span class="line"></span><span class="line"></span><span class="line"></span></button>
 <!-- The combined filter list with navigation menu -->
 <div class="filter">
     <div class="filter__wrapper">
@@ -57,5 +57,4 @@ if (!function_exists('render_category_filter_button')) {
         }
         ?>
     </div>
-    <button class="filter__burger js-burger"><span class="line"></span><span class="line"></span><span class="line"></span></button>
 </div>

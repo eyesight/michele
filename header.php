@@ -48,7 +48,9 @@
             </g>
         </svg>
         </a>
+        
         <?php get_template_part( 'template-parts/content/content-categorieList' ); ?>
       </div>
     </div>
   </header>
+  <div class="header-placeholder"></div>
