@@ -69,12 +69,12 @@
 							</p>
 						</div>
 					</div>
-				</div>
+				</div> 
 			</div>
 			<div class="bg-white">
-			<?php get_template_part( 'template-parts/content/content' ); ?>
+				<?php get_template_part( 'template-parts/content/content' ); ?>
+				<?php get_template_part( 'template-parts/content/content-prevNext' ); ?>  
 			</div>
-			<?php get_template_part( 'template-parts/content/content-prevNext' ); ?>  
 		</main>
 	<?php endwhile; ?>
 <?php else : ?>

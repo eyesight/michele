@@ -12,18 +12,14 @@ if (!function_exists('render_category_filter_button')) {
             $link = home_url() . '/#' . $term->slug;
 
             // Output the <a> tag styled as a button for non-homepage
-            echo "<div class='filter__button-wrapper'>
-                    <a href='$link' class='filter__button' data-filter-target='" . $term->slug . "'>
-                        $button_content
-                    </a>
-                  </div>";
+            echo "<a href='$link' class='filter__button' data-filter-target='" . $term->slug . "'>
+                    $button_content
+                  </a>";
         } else {
             // Output the <button> for the homepage
-            echo "<div class='filter__button-wrapper'>
-                    <button class='filter__button' data-filter-target='" . $term->slug . "'>
-                        $button_content
-                    </button>
-                  </div>";
+            echo "<button class='filter__button' data-filter-target='" . $term->slug . "'>
+                    $button_content
+                  </button>";
         }
     }
 }

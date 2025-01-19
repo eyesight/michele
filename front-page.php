@@ -11,22 +11,16 @@
                     'post_status'    => 'publish',
                     'posts_per_page' => -1,
                     'meta_query'     => array(
-                        'relation' => 'OR',
-                        array( // Posts and pages with a valid sort-number
+                        'relation' => 'AND', // Ensure all conditions must be met
+                        array( // Only include posts and pages where 'sort-number' exists
                             'key'     => 'sort-number',
                             'compare' => 'EXISTS',
                         ),
-                        array( // Posts without sort-number
-                            'relation' => 'AND',
-                            array(
-                                'key'     => 'sort-number',
-                                'compare' => 'NOT EXISTS',
-                            ),
-                            array(
-                                'key'     => 'post_type',
-                                'value'   => 'post',
-                                'compare' => '=',
-                            ),
+                        array( // Only include posts and pages with 'sort-number' > 0
+                            'key'     => 'sort-number',
+                            'value'   => 0,
+                            'type'    => 'NUMERIC',
+                            'compare' => '>',
                         ),
                     ),
                     'meta_key'       => 'sort-number',
@@ -36,7 +30,6 @@
                     ),
                 )
             );
-            
         ?>
 
         <?php if ( $wpb_all_query->have_posts() ) : ?>
@@ -78,16 +71,38 @@
                             <img src="<?php the_post_thumbnail_url('category-thumb'); ?>" alt="<?php the_title(); ?>">
                         </div>
                         <article class="tiles__text-wrapper">
-                            <h2 class="tiles__item-title">
-                                <?php the_title(); ?>
-                            </h2>
-                            <div class="tiles__item-copyright">
-                                <?php if (get_field('copyright') !== '') : ?>
+                            <?php if (get_post_type() === 'page') : ?>
+                                <?php 
+                                    // Attempt to get the navigation title
+                                    $menu_item_title = '';
+                                    $locations = get_nav_menu_locations();
+                                    if (isset($locations['main-menu'])) { // Replace 'primary' with your menu location
+                                        $menu = wp_get_nav_menu_object($locations['main-menu']);
+                                        $menu_items = wp_get_nav_menu_items($menu->term_id);
+                                        foreach ($menu_items as $menu_item) {
+                                            if ($menu_item->object_id == get_the_ID()) {
+                                                $menu_item_title = $menu_item->title;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                ?>
+                                <h2 class="tiles__item-title">
+                                    <?php echo !empty($menu_item_title) ? $menu_item_title : the_title(); ?>
+                                </h2>
+                            <?php else : ?>
+                                <h3 class="tiles__item-title">
+                                    <?php the_title(); ?>
+                                </h3>
+                            <?php endif; ?>
+                            <?php if ((get_field('copyright') !== '') || !(get_post_type() === 'page')) : ?>
+                                <div class="tiles__item-copyright">
                                     Entstanden bei <?php echo get_field('copyright'); ?>
-                                <?php endif; ?>
-                            </div>
+                                </div>
+                            <?php endif; ?>
                         </article>
                     </a>
+
                 </div>
             <?php endwhile; ?>
             <!-- end of the loop -->

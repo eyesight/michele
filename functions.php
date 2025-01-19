@@ -237,11 +237,9 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
         $button_content = $title;
 
         // Wrap the navigation item like a filter button
-        $output .= "<div class='filter__button-wrapper'>
-                        <a href='" . esc_url($url) . "' class='filter__button'>
-                            $button_content
-                        </a>
-                    </div>";
+        $output .= "<a href='" . esc_url($url) . "' class='filter__button'>
+                      $button_content
+                    </a>";
     }
 
     // End each element (no closing tag needed for items)
