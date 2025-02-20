@@ -150,74 +150,13 @@ function create_category_on_theme_activation() {
 }
 add_action('init', 'create_category_on_theme_activation');
 
-function add_hero_image_meta_box() {
-  add_meta_box(
-      'hero_image_meta_box',          // Unique ID for the meta box
-      'Hero Image',                   // Meta box title
-      'display_hero_image_meta_box',  // Callback function
-      'post',                         // Post type
-      'side',                         // Context (where it appears: side, normal, advanced)
-      'high'                          // Priority
-  );
-}
-add_action('add_meta_boxes', 'add_hero_image_meta_box');
-
-function display_hero_image_meta_box($post) {
-  // Retrieve the existing value
-  $hero_image = get_post_meta($post->ID, '_hero_image', true);
-  ?>
-  <p>
-      <label for="hero_image">Upload Hero Image</label>
-      <input type="text" id="hero_image" name="hero_image" value="<?php echo esc_attr($hero_image); ?>" style="width: 100%;" />
-      <input type="button" id="upload_hero_image_button" class="button" value="Upload Image" />
-  </p>
-  <script type="text/javascript">
-      jQuery(document).ready(function($) {
-          var mediaUploader;
-
-          $('#upload_hero_image_button').click(function(e) {
-              e.preventDefault();
-
-              // If the uploader object has already been created, reopen the dialog
-              if (mediaUploader) {
-                  mediaUploader.open();
-                  return;
-              }
-
-              // Create a new media uploader
-              mediaUploader = wp.media({
-                  title: 'Choose Hero Image',
-                  button: {
-                      text: 'Use this image'
-                  },
-                  multiple: false // Set to false to allow only one file selection
-              });
-
-              // When an image is selected, grab the URL and set it as the input field's value
-              mediaUploader.on('select', function() {
-                  var attachment = mediaUploader.state().get('selection').first().toJSON();
-                  $('#hero_image').val(attachment.url);
-              });
-
-              // Open the uploader dialog
-              mediaUploader.open();
-          });
-      });
-  </script>
-  <?php
-}
-
-// Save the meta box data
-function save_hero_image_meta_box($post_id) {
-  if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-  if (!current_user_can('edit_post', $post_id)) return;
-  if (isset($_POST['hero_image'])) {
-      update_post_meta($post_id, '_hero_image', esc_url_raw($_POST['hero_image']));
+function redirect_category_to_home() {
+  if (is_category()) {
+      wp_redirect(home_url());
+      exit();
   }
 }
-add_action('save_post', 'save_hero_image_meta_box');
-
-
+add_action('template_redirect', 'redirect_category_to_home');
 
 
 class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
