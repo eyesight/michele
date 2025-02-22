@@ -11,14 +11,22 @@
                     'post_status'    => 'publish',
                     'posts_per_page' => -1,
                     'meta_query'     => array(
-                        'relation' => 'OR',
-                        array( // Include posts with sortdate
-                            'key'     => 'sortdate',
-                            'compare' => 'EXISTS',
+                        'relation' => 'AND',
+                        array( // Exclude posts where 'not-on-front' is true (1)
+                            'key'     => 'not-on-front',
+                            'value'   => '1',
+                            'compare' => '!=', 
                         ),
-                        array( // Include posts without sortdate
-                            'key'     => 'sortdate',
-                            'compare' => 'NOT EXISTS',
+                        array( // Include posts with sortdate
+                            'relation' => 'OR',
+                            array(
+                                'key'     => 'sortdate',
+                                'compare' => 'EXISTS',
+                            ),
+                            array( // Include posts without sortdate
+                                'key'     => 'sortdate',
+                                'compare' => 'NOT EXISTS',
+                            ),
                         ),
                     ),
                     'orderby'        => array(
@@ -28,6 +36,7 @@
                     'meta_key'       => 'sortdate', // Needed for ordering by meta_value
                 )
             );
+            
         ?>
 
         <?php if ( $wpb_all_query->have_posts() ) : ?>
