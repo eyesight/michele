@@ -4,30 +4,28 @@
 
     <div class="grid-container-space-between tiles">
         <?php 
-            // the query     
+            // The query     
             $wpb_all_query = new WP_Query(
                 array(
-                    'post_type'      => array('post', 'page'), // Include posts and pages
+                    'post_type'      => array('post', 'page'),
                     'post_status'    => 'publish',
                     'posts_per_page' => -1,
                     'meta_query'     => array(
-                        'relation' => 'AND', // Ensure all conditions must be met
-                        array( // Only include posts and pages where 'sort-number' exists
-                            'key'     => 'sort-number',
+                        'relation' => 'OR',
+                        array( // Include posts with sortdate
+                            'key'     => 'sortdate',
                             'compare' => 'EXISTS',
                         ),
-                        array( // Only include posts and pages with 'sort-number' > 0
-                            'key'     => 'sort-number',
-                            'value'   => 0,
-                            'type'    => 'NUMERIC',
-                            'compare' => '>',
+                        array( // Include posts without sortdate
+                            'key'     => 'sortdate',
+                            'compare' => 'NOT EXISTS',
                         ),
                     ),
-                    'meta_key'       => 'sort-number',
                     'orderby'        => array(
-                        'meta_value_num' => 'ASC', // Sort by sort-number first
-                        'date'           => 'DESC' // Then by publish date descending
+                        'meta_value' => 'DESC', // Sort by sortdate when available
+                        'date'       => 'DESC', // Otherwise, sort by post_date
                     ),
+                    'meta_key'       => 'sortdate', // Needed for ordering by meta_value
                 )
             );
         ?>
