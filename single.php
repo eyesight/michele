@@ -5,52 +5,58 @@
         <?php the_post(); ?>
 
         <?php
-          // Get the ACF 'hero' and 'hero_mobile' fields
+          // Get ACF fields
           $acf_hero_image = get_field('hero');
           $acf_hero_mobile = get_field('hero_mobile');
+          $acf_hero_video = get_field('hero_video');
 
-          // Get the hero image URL from a custom meta field '_hero_image'
+          // Get hero image from meta field
           $hero_image = get_post_meta(get_the_ID(), '_hero_image', true);
 
-          // Ensure it is an array (ACF image field returns an array by default)
+          // Determine hero image URL (only use post thumbnail if no video exists)
           if (is_array($acf_hero_image) && !empty($acf_hero_image['url'])) {
               $hero_image_url = esc_url($acf_hero_image['url']);
+          } elseif (!empty($hero_image)) {
+              $hero_image_url = esc_url($hero_image);
+          } elseif (empty($acf_hero_video) && has_post_thumbnail()) { 
+              // Only use post thumbnail if no hero video is set
+              $hero_image_url = get_the_post_thumbnail_url(get_the_ID(), 'category-thumb');
           } else {
-              // If ACF 'hero' is empty, check the '_hero_image' custom meta field
-              if (!empty($hero_image)) {
-                  $hero_image_url = esc_url($hero_image);
-              } elseif (has_post_thumbnail()) {
-                  $hero_image_url = get_the_post_thumbnail_url(get_the_ID(), 'category-thumb');
-              } else {
-                  $hero_image_url = ''; // No image found
-              }
+              $hero_image_url = ''; // No image found
           }
 
-          // Get hero mobile image URL
+          // Get mobile hero image URL
           $hero_mobile_url = (!empty($acf_hero_mobile['url'])) ? esc_url($acf_hero_mobile['url']) : '';
 
-          // Display hero images
-          if (!empty($hero_image_url)) {
+          // Display hero content
+          if (!empty($hero_image_url) || !empty($hero_mobile_url)) {
               echo '<div class="hero-image">
                       <div class="hero-image__wrapper content">';
 
-              // Add classes if a mobile image exists
+              // Classes for responsive images
               $desktop_class = !empty($hero_mobile_url) ? 'screen-only' : '';
               $mobile_class = !empty($hero_mobile_url) ? 'mobile-only' : '';
 
               // Desktop hero image
-              echo '<img class="hero-image__image ' . esc_attr($desktop_class) . '" src="' . $hero_image_url . '" />';
+              if (!empty($hero_image_url)) {
+                  echo '<img class="hero-image__image ' . esc_attr($desktop_class) . '" src="' . $hero_image_url . '" />';
+              }
 
-              // Mobile hero image (if exists)
+              // Mobile hero image
               if (!empty($hero_mobile_url)) {
                   echo '<img class="hero-image__image ' . esc_attr($mobile_class) . '" src="' . $hero_mobile_url . '" />';
               }
 
               echo '</div>
                   </div>';
-          }
+          } elseif (!empty($acf_hero_video)) {
+              // Display hero video using embedded iframe
+              echo '<div class="hero-video">
+                      <div class="content">' . $acf_hero_video . '</div>
+                    </div>';
+          } 
         ?>
-        
+
         <div class="hero-image--placeholder"></div>
         <div class="title-lead sticky" data-sticky-wrap>
           <div class="content title-lead__content">

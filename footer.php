@@ -6,11 +6,6 @@
             dynamic_sidebar('footer-adress');
         }
       ?>
-      <?php
-        if(is_active_sidebar('footer-adress2')){
-            dynamic_sidebar('footer-adress2');
-        }
-      ?>
       <?php wp_nav_menu( array( 
         'theme_location' => 'social-menu',
         'container' => '',

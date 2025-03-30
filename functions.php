@@ -30,17 +30,6 @@ function mim_features() {
     'after_title' => '</h3>',
     'show_in_rest' => false
     ) );
-
-    register_sidebar( array(
-      'name' => 'Footer Adress 2',
-      'id' => 'footer-adress2',
-      'description' => 'Address in the footer area',
-      'before_widget' => '<div class="footer__text">',
-      'after_widget' => '</div>',
-      'before_title' => '<h3 class="footer__title">',
-      'after_title' => '</h3>',
-      'show_in_rest' => false
-      ) );
     add_theme_support('post-thumbnails');
 }
 
