@@ -104,7 +104,7 @@
                             <?php endif; ?>
                             <?php if ((get_field('copyright') !== '') || !(get_post_type() === 'page')) : ?>
                                 <div class="tiles__item-copyright">
-                                    Entstanden bei <?php echo get_field('copyright'); ?>
+                                    <?php echo get_field('copyright'); ?>
                                 </div>
                             <?php endif; ?>
                         </article>
