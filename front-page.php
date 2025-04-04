@@ -4,119 +4,135 @@
 
     <div class="grid-container-space-between tiles">
         <?php 
-            // The query     
-            $wpb_all_query = new WP_Query(
+        $wpb_all_query = new WP_Query(array(
+            'post_type'      => array('post', 'page'),
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'meta_query'     => array(
+                'relation' => 'AND',
                 array(
-                    'post_type'      => array('post', 'page'),
-                    'post_status'    => 'publish',
-                    'posts_per_page' => -1,
-                    'meta_query'     => array(
-                        'relation' => 'AND',
-                        array( // Exclude posts where 'not-on-front' is true (1)
-                            'key'     => 'not-on-front',
-                            'value'   => '1',
-                            'compare' => '!=', 
-                        ),
-                        array( // Include posts with sortdate
-                            'relation' => 'OR',
-                            array(
-                                'key'     => 'sortdate',
-                                'compare' => 'EXISTS',
-                            ),
-                            array( // Include posts without sortdate
-                                'key'     => 'sortdate',
-                                'compare' => 'NOT EXISTS',
-                            ),
-                        ),
+                    'key'     => 'not-on-front',
+                    'value'   => '1',
+                    'compare' => '!=',
+                ),
+                array(
+                    'relation' => 'OR',
+                    array(
+                        'key'     => 'sortdate',
+                        'compare' => 'EXISTS',
                     ),
-                    'orderby'        => array(
-                        'meta_value' => 'DESC', // Sort by sortdate when available
-                        'date'       => 'DESC', // Otherwise, sort by post_date
+                    array(
+                        'key'     => 'sortdate',
+                        'compare' => 'NOT EXISTS',
                     ),
-                    'meta_key'       => 'sortdate', // Needed for ordering by meta_value
-                )
-            );
-            
+                ),
+            ),
+            'orderby'   => array(
+                'meta_value' => 'DESC',
+                'date'       => 'DESC',
+            ),
+            'meta_key'  => 'sortdate',
+        ));
         ?>
 
-        <?php if ( $wpb_all_query->have_posts() ) : ?>
+        <?php if ($wpb_all_query->have_posts()) { ?>
 
-            <!-- the loop -->
-            <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
-                <?php 
-                $custom_css_variable = 3;
-                if (get_field('col-numb') !== '') {
-                    $custom_css_variable = get_field('col-numb');
-                } 
+            <?php while ($wpb_all_query->have_posts()) {
+                $wpb_all_query->the_post();
+
+                $custom_css_variable = get_field('col-numb') !== '' ? get_field('col-numb') : 3;
                 $wrapper_classes = "tiles__item tiles__item--col-" . $custom_css_variable;
+
                 if (get_post_type() === 'page') {
-                    $wrapper_classes .= " tiles__item--page"; // Add additional class for pages
+                    $wrapper_classes .= " tiles__item--page";
                 }
-                ?>
-                <div class="<?php echo $wrapper_classes; ?> 
-                <?php if (get_post_type() === 'post') { // Only add categories for posts
-                    foreach ((get_the_category()) as $category) {
-                        echo "tiles__filter--" . $category->slug . " ";
+
+                $extra_classes = '';
+                $data_category = '';
+
+                if (get_post_type() === 'post') {
+                    $categories = get_the_category();
+                    foreach ($categories as $category) {
+                        $extra_classes .= ' tiles__filter--' . $category->slug;
+                        $data_category .= $category->slug . ' ';
                     }
-                } ?>" 
-                data-category="<?php if (get_post_type() === 'post') { // Add data-category for posts
-                    foreach ((get_the_category()) as $category) {
-                        echo $category->slug . " ";
+                } else {
+                    $menu_item_title = '';
+                    $locations = get_nav_menu_locations();
+                    if (isset($locations['main-menu'])) {
+                        $menu = wp_get_nav_menu_object($locations['main-menu']);
+                        $menu_items = wp_get_nav_menu_items($menu->term_id);
+                        foreach ($menu_items as $menu_item) {
+                            if ($menu_item->object_id == get_the_ID()) {
+                                $menu_item_title = $menu_item->title;
+                                break;
+                            }
+                        }
                     }
-                } ?>" data-id="<?php the_id(); ?>" 
-                >
-                    <?php if (get_post_type() === 'post') : // Display category filters for posts ?>
-                        <div class="tiles__cats-wrapper">
-                            <?php foreach ((get_the_category()) as $category) {
-                                echo "<button data-filter-target=" . $category->slug . " class='tiles__cat-filter'>" . $category->name . "</button>";
-                            } ?>
-                        </div>
-                    <?php endif; ?>
-                    
+                    $page_slug = sanitize_title(!empty($menu_item_title) ? $menu_item_title : get_the_title());
+                    $extra_classes .= ' tiles__filter--' . $page_slug;
+                    $data_category = $page_slug;
+                }
+            ?>
+
+                <div class="<?php echo esc_attr($wrapper_classes . $extra_classes); ?>" 
+                     data-category="<?php echo esc_attr($data_category); ?>" 
+                     data-id="<?php the_id(); ?>">
+
+                    <div class="tiles__cats-wrapper">
+                        <?php 
+                        if (get_post_type() === 'post') {
+                            $categories = get_the_category();
+                            foreach ($categories as $category) {
+                                echo "<button data-filter-target='" . esc_attr($category->slug) . "' class='tiles__cat-filter'>" . esc_html($category->name) . "</button>";
+                            }
+                        } else {
+                            $button_label = !empty($menu_item_title) ? $menu_item_title : get_the_title();
+                            echo "<button data-filter-target='" . sanitize_title($button_label) . "' class='tiles__cat-filter'>" . esc_html($button_label) . "</button>";
+                        }
+                        ?>
+                    </div>
+
                     <a class="tiles__item-link" href="<?php the_permalink(); ?>">
                         <div class="tiles__img-wrapper">
                             <img src="<?php the_post_thumbnail_url('category-thumb'); ?>" alt="<?php the_title(); ?>">
                         </div>
                         <article class="tiles__text-wrapper">
-                            <?php if (get_post_type() === 'page') : ?>
+                            <?php if (get_post_type() === 'page') { ?>
                                 <?php 
-                                    // Attempt to get the navigation title
-                                    $menu_item_title = '';
-                                    $locations = get_nav_menu_locations();
-                                    if (isset($locations['main-menu'])) { // Replace 'primary' with your menu location
-                                        $menu = wp_get_nav_menu_object($locations['main-menu']);
-                                        $menu_items = wp_get_nav_menu_items($menu->term_id);
-                                        foreach ($menu_items as $menu_item) {
-                                            if ($menu_item->object_id == get_the_ID()) {
-                                                $menu_item_title = $menu_item->title;
-                                                break;
-                                            }
+                                $menu_item_title = '';
+                                $locations = get_nav_menu_locations();
+                                if (isset($locations['main-menu'])) {
+                                    $menu = wp_get_nav_menu_object($locations['main-menu']);
+                                    $menu_items = wp_get_nav_menu_items($menu->term_id);
+                                    foreach ($menu_items as $menu_item) {
+                                        if ($menu_item->object_id == get_the_ID()) {
+                                            $menu_item_title = $menu_item->title;
+                                            break;
                                         }
                                     }
+                                }
                                 ?>
-                                <h2 class="tiles__item-title">
-                                    <?php echo !empty($menu_item_title) ? $menu_item_title : the_title(); ?>
-                                </h2>
-                            <?php else : ?>
-                                <h3 class="tiles__item-title">
-                                    <?php the_title(); ?>
-                                </h3>
-                            <?php endif; ?>
-                            <?php if ((get_field('copyright') !== '') || !(get_post_type() === 'page')) : ?>
+                                <h2 class="tiles__item-title"><?php echo !empty($menu_item_title) ? esc_html($menu_item_title) : get_the_title(); ?></h2>
+                            <?php } else { ?>
+                                <h3 class="tiles__item-title"><?php the_title(); ?></h3>
+                            <?php } ?>
+
+                            <?php 
+                            $copyright = get_field('copyright');
+                            if (!empty($copyright) || get_post_type() !== 'page') { ?>
                                 <div class="tiles__item-copyright">
-                                    <?php echo get_field('copyright'); ?>
+                                    <?php echo esc_html($copyright); ?>
                                 </div>
-                            <?php endif; ?>
+                            <?php } ?>
                         </article>
                     </a>
-
                 </div>
-            <?php endwhile; ?>
-            <!-- end of the loop -->
-        </div>
-        <?php wp_reset_postdata(); ?>
-        <?php else : ?>
+            <?php } // end while ?>
+            <?php wp_reset_postdata(); ?>
+        <?php } else { ?>
             <p><?php _e('Sorry, no posts or pages found.'); ?></p>
-        <?php endif; ?>
+        <?php } ?>
+    </div>
 </main>
 <?php get_footer(); ?>
