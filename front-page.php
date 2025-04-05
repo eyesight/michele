@@ -95,7 +95,22 @@
 
                     <a class="tiles__item-link" href="<?php the_permalink(); ?>">
                         <div class="tiles__img-wrapper">
-                            <img src="<?php the_post_thumbnail_url('category-thumb'); ?>" alt="<?php the_title(); ?>">
+                            <?php 
+                            $image_front = get_field('image_front');
+                            $image_url = '';
+
+                            if ($image_front) {
+                                // If ACF image field is set
+                                $image_url = is_array($image_front) ? $image_front['url'] : $image_front;
+                            } else {
+                                // Fallback to featured image
+                                $image_url = get_the_post_thumbnail_url(get_the_ID(), 'category-thumb');
+                            }
+                            ?>
+
+                            <?php if ($image_url): ?>
+                                <img src="<?php echo esc_url($image_url); ?>" alt="<?php the_title(); ?>">
+                            <?php endif; ?>
                         </div>
                         <article class="tiles__text-wrapper">
                             <?php if (get_post_type() === 'page') { ?>
