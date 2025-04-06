@@ -88,6 +88,7 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
         'cgb/block-mim-image-container',
         'cgb/block-mim-img-sizes',
         "core/heading",
+        'core/video',
         // "core/image",
         // "core/paragraph"
       );
