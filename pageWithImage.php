@@ -34,8 +34,7 @@
 	<?php while ( have_posts() ) : ?>
 		<?php the_post(); ?>
 		<main class="content title-image">
-			<div class="grid-container title-image__container">
-				<h1 class="visually-hidden"><?php echo $active_menu_title ?></h1>
+			<div class="grid-container title-image__container">				
 				<div class="title-image__image">
 					<?php
 						$image_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
@@ -43,9 +42,30 @@
 					<img src="<?php echo $image_url; ?>">
 				</div>
 				<div class="title-image__wrapper">
-					<p class="title-image__title" placeholder="Titel">
+					<?php
+                      for ($i = 0; $i < 20; $i++) {
+                          $creditvar = 'credits' . $i;
+                          $credit = get_field($creditvar);
+                          $creditName = $credit['name'] ?? '';
+                          $creditJob = $credit['job'] ?? '';
+
+                          if (!empty($creditName)) {
+                              echo '<div class="title-image__credit">';
+                              echo '<p class="title-image__text bold">' . esc_html($creditJob) . '</p>';
+                              echo '<p class="title-image__text">' . esc_html($creditName) . '</p>';
+                              echo '</div>';
+                          }
+                      }
+                    ?>
+					<h1 class="title-image__title" placeholder="Titel">
 						<?php the_title(); ?>
-					</p>
+					</h1>
+					<?php 
+						// ACF field for Lead under the title
+						$lead = get_field('lead'); 
+						if ($lead): ?>
+							<p class="title-image__lead"><?php echo esc_html($lead); ?></p>
+					<?php endif; ?>
 					<?php get_template_part( 'template-parts/content/content' ); ?>
 				</div>
 			</div>
