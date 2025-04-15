@@ -28,10 +28,21 @@
             // Mobile hero image URL
             $hero_mobile_url = (!empty($acf_hero_mobile['url'])) ? esc_url($acf_hero_mobile['url']) : '';
 
+			$image_width = get_field('image-width');
+			$object_fit_contain = get_field('object-fit-contain'); // true or false
+			$wrapper_classes = [];
+
+			$wrapper_classes[] = ($image_width === 'content') ? 'content' : 'fullwidth';
+			
             // Display hero content
             if (!empty($hero_image_url) || !empty($hero_mobile_url)) {
+
+				if ($object_fit_contain) {
+					$wrapper_classes[] = 'hero-image__wrapper--contain';
+				}	
+
                 echo '<div class="hero-image">
-                        <div class="hero-image__wrapper content">';
+                        <div class="hero-image__wrapper ' . esc_attr(implode(' ', $wrapper_classes)) . '">';
 
                 $desktop_class = !empty($hero_mobile_url) ? 'screen-only' : '';
                 $mobile_class = !empty($hero_mobile_url) ? 'mobile-only' : '';
@@ -48,7 +59,7 @@
                     </div>';
             } elseif (!empty($acf_hero_video)) {
                 echo '<div class="hero-video">
-                        <div class="content">' . $acf_hero_video . '</div>
+                        <div class="' . esc_attr(implode(' ', $wrapper_classes)) . '">' . $acf_hero_video . '</div>
                       </div>';
             }
             ?>
@@ -63,20 +74,20 @@
                             <p class="title-lead__lead"><?php echo esc_html(get_field('lead')); ?></p>
                         </div>
 
-                        <div class="title-lead__categories-wrapper">
-                            <?php
-                            $hasCredits = false;
+						<?php
+						$hasCredits = false;
 
-                            for ($i = 0; $i < 20; $i++) {
-                                $creditvar = 'credits' . $i;
-                                $credit = get_field($creditvar);
-                                if (!empty($credit['name'])) {
-                                    $hasCredits = true;
-                                    break;
-                                }
-                            }
+						for ($i = 0; $i < 20; $i++) {
+							$creditvar = 'credits' . $i;
+							$credit = get_field($creditvar);
+							if (!empty($credit['name'])) {
+								$hasCredits = true;
+								break;
+							}
+						}
 
-                            if ($hasCredits): ?>
+						if ($hasCredits): ?>
+                        	<div class="title-lead__categories-wrapper">
                                 <div class="title-lead__credits-container">
                                     <div class="title-lead__credit-item">
                                         <p class="title-lead__text title-lead__text--bold">Credits</p>
@@ -96,8 +107,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            <?php endif; ?>
-                        </div>
+							</div>
+						<?php endif; ?>
 						<?php
                             $client = get_field('client');
                             if (!empty($client)) {
