@@ -32,7 +32,8 @@
 			$object_fit_contain = get_field('object-fit-contain'); // true or false
 			$wrapper_classes = [];
 
-			$wrapper_classes[] = ($image_width === 'content') ? 'content' : 'fullwidth';
+			$hero_class = ($image_width === 'content') ? 'content' : 'fullwidth';
+			$wrapper_classes[] = $hero_class;
 			
             // Display hero content
             if (!empty($hero_image_url) || !empty($hero_mobile_url)) {
@@ -41,7 +42,7 @@
 					$wrapper_classes[] = 'hero-image__wrapper--contain';
 				}	
 
-                echo '<div class="hero-image">
+                echo '<div class="hero-image ' . esc_attr($hero_class) . '">
                         <div class="hero-image__wrapper ' . esc_attr(implode(' ', $wrapper_classes)) . '">';
 
                 $desktop_class = !empty($hero_mobile_url) ? 'screen-only' : '';
@@ -58,9 +59,9 @@
                 echo '</div>
                     </div>';
             } elseif (!empty($acf_hero_video)) {
-                echo '<div class="hero-video">
-                        <div class="' . esc_attr(implode(' ', $wrapper_classes)) . '">' . $acf_hero_video . '</div>
-                      </div>';
+                echo '<div class="hero-video ' . esc_attr($hero_class) . '">
+					<div class="hero-video__wrapper ' . esc_attr(implode(' ', $wrapper_classes)) . '">' . $acf_hero_video . '</div>
+				 </div>';
             }
             ?>
 
