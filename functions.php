@@ -69,6 +69,8 @@ function mim_allowed_block_types( $allowed_blocks, $post ) {
         'cgb/block-mim-list-item',
         'cgb/block-mim-list-item-title',
         'cgb/block-mim-list-outer-container',
+        'cgb/block-mim-accordion',
+        'cgb/block-mim-accordion-item',
         "core/heading",
         // 'core/video',
         // "core/image",
