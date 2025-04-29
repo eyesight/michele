@@ -22,6 +22,7 @@
     // Retrieve the value of the custom field
     $body_background_color = get_field('background-color');
     $body_text_color = get_field('text-color');
+    $body_header_color = get_field('header-color');
 
     // Output the value inside the body element
     if (!empty($body_background_color) && !is_front_page() && !is_category()) {
@@ -30,6 +31,10 @@
 
     if (!empty($body_text_color) && !is_front_page() && !is_category()) {
       echo '--mim-text-color:' . esc_attr($body_text_color) . ';';
+    }
+
+    if (!empty($body_header_color) && !is_front_page() && !is_category()) {
+      echo '--mim-header-color:' . esc_attr($body_header_color) . ';';
     }
   ?>">
   <header class="header">
