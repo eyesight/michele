@@ -72,7 +72,18 @@
                     <div class="grid-offset-container title-lead__container">
                         <div class="title-lead__wrapper">
                             <h1 class="title-lead__title"><?php the_title(); ?></h1>
-                            <p class="title-lead__lead"><?php echo esc_html(get_field('lead')); ?></p>
+                            <?php
+                                $headline = get_field('headline');
+                                if (!empty($headline)) :
+                            ?>
+                                <p class="title-lead__headline"><?php echo esc_html($headline); ?></p>
+                            <?php endif; ?>
+                            <?php
+                                $lead = get_field('lead');
+                                if (!empty($lead)) :
+                            ?>
+                                <p class="title-lead__lead"><?php echo esc_html(get_field('lead')); ?></p>
+                            <?php endif; ?>
                         </div>
 
 						<?php
